@@ -290,10 +290,9 @@ void ofApp::draw(){
     
     framebuffer0.setAnchorPoint(0, 0);
 
-    framebuffer0.draw(0,0,vid_width,vid_height); // sends frame to tex 0 on shader
     
     if(imgui->source_select == 0){
-        framebuffer0.draw(startX, startY, newWidth, newHeight);
+        framebuffer0.draw(0,0,vid_width,vid_height); // sends frame to tex 0 on shader
     }
     if(imgui->source_select == 1){
         ndi_fbo.draw(startX, startY, newWidth, newHeight);
