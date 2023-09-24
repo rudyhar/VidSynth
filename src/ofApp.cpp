@@ -14,8 +14,11 @@ int height=1440;
 int vid_width;
 int vid_height;
 
+int ofwidth;
+int ofheight;
+
 // need to change this every time replugged in
-int port_id = 1;
+int port_id = 3;
 
 float az = 1.0;
 float sx = .5;
@@ -124,6 +127,9 @@ void ofApp::setup(){
 
     vid_width = videoName[0].getWidth();
     vid_height = videoName[0].getHeight();
+    
+    ofwidth = ofGetWidth();
+    ofheight = ofGetHeight();
 
     allocateAndDeclareSundries();
 
@@ -138,7 +144,7 @@ void ofApp::setup(){
     }
     
     for (int i=0;i<fbob;i++){
-        framebufferDelayNDI[i].allocate(vid_width,vid_height);
+        framebufferDelayNDI[i].allocate(ofGetWidth(),ofGetHeight());
         framebufferDelayNDI[i].begin();
         ofClear(0,0,0,255);
         framebufferDelayNDI[i].end();
@@ -166,11 +172,10 @@ void ofApp::allocateAndDeclareSundries(){
     framebuffer0.begin();
     ofClear(0,0,0,255);
     framebuffer0.end();
-    framebuffer1.allocate(vid_width,vid_height);
-    framebuffer1.begin();
-    ofClear(0,0,0,255);
-    framebuffer1.end();
-    ndi_fbo.allocate(width,height);
+    // allocating by ofGet() instead ofd ndi_fboget somehow made this work
+    ndi_fbo.allocate(ofGetWidth(), ofGetHeight());
+    
+    
     ndi_fbo.begin();
     ofClear(0,0,0,255);
     ndi_fbo.end();
@@ -225,16 +230,10 @@ void ofApp::draw(){
 
     camShader.setUniform1f("pos_scaler",pos_scaler);
 
-    
-    
-    
     camShader.setUniform3f("rgb_multiplier", red, green, blue);
+    
     camShader.setUniform3f("hsv_multiplier", hue, saturation, brightness);
 
-    
-    
-    
-    
     
     // DO A CHECK FOR VIDEO OR NDI SOURCE
 //    switch(imgui->source_select){
@@ -286,22 +285,26 @@ void ofApp::draw(){
     // webcam.draw(0,0,1024,768);
     camShader.end();
 
+    // where the issue lies
     framebuffer0.end();
     
     framebuffer0.setAnchorPoint(0, 0);
 
     
     if(imgui->source_select == 0){
-        framebuffer0.draw(0,0,vid_width,vid_height); // sends frame to tex 0 on shader
+        framebuffer0.draw(0,0,ofGetWidth(),ofGetHeight()); // sends frame to tex 0 on shader
     }
     if(imgui->source_select == 1){
-        ndi_fbo.draw(startX, startY, newWidth, newHeight);
+        ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
     }
 
     if(imgui->source_select == 0){
         framebufferDelay[0].begin();
     }
-
+    if(imgui->source_select == 1){
+        framebufferDelayNDI[0].begin();
+    }
+    /*
 
     // Calculate new width and height after scaling
     float newWidth = vid_width * centre_scale;
@@ -310,19 +313,27 @@ void ofApp::draw(){
     // Calculate starting X and Y positions to draw the FBO centered
     float startX = (vid_width - newWidth) / 2.0;
     float startY = (vid_height - newHeight) / 2.0;
+    
+    */
 
     // Draw the FBO
     if(imgui->source_select == 0){
-        framebuffer0.draw(startX, startY, newWidth, newHeight);
+//        framebuffer0.draw(startX, startY, newWidth, newHeight);
+        framebuffer0.draw(0, 0, vid_width, vid_height);
+
     }
     if(imgui->source_select == 1){
-        ndi_fbo.draw(startX, startY, newWidth, newHeight);
+        ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
     }
     
 
     framebuffer0.setAnchorPoint(vid_width/2, vid_height/2);
+//    ndi_fbo.setAnchorPoint(ndi_fbo.getWidth()/2, ndi_fbo.getHeight()/2);
 
 
+    //_______________________________----------------------------------------
+    // FOR NORMAL FBO
+    
     float fboCenterX = vid_width / 2;
     float fboCenterY = vid_height / 2;
 
@@ -334,31 +345,57 @@ void ofApp::draw(){
 //    ofRotateDeg(45, 0, 0, 1);
 
     // Translate back by the negative offset of the FBO's center
-    framebuffer0.draw(0, 0);
-    
+    if(imgui->source_select == 0){
+        framebuffer0.draw(0, 0);
+    }
 //    ofRotateDeg(-45, 0, 0, 1);
 
 
     ofTranslate(-fboCenterX, -fboCenterY, 0);
+    
+    //_______________________________----------------------------------------
+    // FOR NDI FBO
+    if(imgui->source_select == 1){
+        ndi_fbo.draw(0, 0);
+    }
+    
+    
+    
+    
 
     // Draw the FBO
-
+    
     if(imgui->source_select == 0){
         framebufferDelay[0].end();
+    }
+    if(imgui->source_select == 1){
+        framebufferDelayNDI[0].end();
+    }
 
+    
+//    if(imgui->source_select == 0){
+//        framebufferDelay[0].end();
+//    }
+    
+//    if(imgui->source_select == 1){
+//        framebufferDelayNDI[0].end();
+//    }
+
+
+
+    if(imgui->source_select == 0){
         for (int i = fbob-1; i > 0; i--) {
             framebufferDelay[i].begin();
-            framebufferDelay[i-1].draw(0, 0, vid_width, vid_height); // calls draw on every frame delay so eah are drawn
+            framebufferDelay[i-1].draw(0, 0, ofwidth, ofheight); // calls draw on every frame delay so eah are drawn
             framebufferDelay[i].end();
         }
 
-        framebufferDelayNDI[0].end();
     }
 
     if(imgui->source_select == 1){
         for (int i = fbob-1; i > 0; i--) {
             framebufferDelayNDI[i].begin();
-            framebufferDelayNDI[i-1].draw(0, 0, vid_width, vid_height); // calls draw on every frame delay so eah are drawn
+            framebufferDelayNDI[i-1].draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight()); // calls draw on every frame delay so eah are drawn
             framebufferDelayNDI[i].end();
         }
     }
@@ -425,9 +462,10 @@ void ofApp::keyPressed(int key){
         centre_scale-=0.1;
         printf("centre_scale: %f\n", centre_scale);
     }
+    if(key=='t'){
+        imgui->source_select=0;
+    }
 
-    
-    
 
     if (key == ',') {
         float frameLength = 1.0 / videoName[0].getTotalNumFrames();
@@ -805,4 +843,7 @@ void ofApp::NDI_update(){
     
     
 }
+
+
+
 
