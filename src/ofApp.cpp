@@ -292,7 +292,7 @@ void ofApp::draw(){
 
     
     if(imgui->source_select == 0){
-        framebuffer0.draw(0,0,ofGetWidth(),ofGetHeight()); // sends frame to tex 0 on shader
+        framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
     }
     if(imgui->source_select == 1){
         ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
