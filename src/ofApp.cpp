@@ -290,13 +290,13 @@ void ofApp::draw(){
     
     framebuffer0.setAnchorPoint(0, 0);
 
-    
-    if(imgui->source_select == 0){
-        framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
-    }
-    if(imgui->source_select == 1){
-        ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
-    }
+    framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
+    // if(imgui->source_select == 0){
+    //     framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
+    // }
+    // if(imgui->source_select == 1){
+    //     ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
+    // }
 
     if(imgui->source_select == 0){
         framebufferDelay[0].begin();
@@ -317,6 +317,8 @@ void ofApp::draw(){
     */
 
     // Draw the FBO
+    framebuffer0.draw(0, 0, ofwidth, ofheight);
+    /*
     if(imgui->source_select == 0){
 //        framebuffer0.draw(startX, startY, newWidth, newHeight);
         framebuffer0.draw(0, 0, vid_width, vid_height);
@@ -325,17 +327,17 @@ void ofApp::draw(){
     if(imgui->source_select == 1){
         ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
     }
-    
+    */
 
-    framebuffer0.setAnchorPoint(vid_width/2, vid_height/2);
+    framebuffer0.setAnchorPoint(ofwidth/2, ofheight/2);
 //    ndi_fbo.setAnchorPoint(ndi_fbo.getWidth()/2, ndi_fbo.getHeight()/2);
 
 
     //_______________________________----------------------------------------
     // FOR NORMAL FBO
     
-    float fboCenterX = vid_width / 2;
-    float fboCenterY = vid_height / 2;
+    float fboCenterX = ofwidth / 2;
+    float fboCenterY = ofheight / 2;
 
     // Translate to the center of the FBO
     ofTranslate(fboCenterX, fboCenterY, 0);
@@ -345,9 +347,10 @@ void ofApp::draw(){
 //    ofRotateDeg(45, 0, 0, 1);
 
     // Translate back by the negative offset of the FBO's center
-    if(imgui->source_select == 0){
-        framebuffer0.draw(0, 0);
-    }
+    framebuffer0.draw(0, 0);
+    // if(imgui->source_select == 0){
+    //     framebuffer0.draw(0, 0);
+    // }
 //    ofRotateDeg(-45, 0, 0, 1);
 
 
@@ -355,11 +358,9 @@ void ofApp::draw(){
     
     //_______________________________----------------------------------------
     // FOR NDI FBO
-    if(imgui->source_select == 1){
-        ndi_fbo.draw(0, 0);
-    }
-    
-    
+    // if(imgui->source_select == 1){
+    //     ndi_fbo.draw(0, 0);
+    // }
     
     
 
@@ -395,7 +396,7 @@ void ofApp::draw(){
     if(imgui->source_select == 1){
         for (int i = fbob-1; i > 0; i--) {
             framebufferDelayNDI[i].begin();
-            framebufferDelayNDI[i-1].draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight()); // calls draw on every frame delay so eah are drawn
+            framebufferDelayNDI[i-1].draw(0, 0, ofwidth, ofheight); // calls draw on every frame delay so eah are drawn
             framebufferDelayNDI[i].end();
         }
     }
