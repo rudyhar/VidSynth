@@ -79,81 +79,22 @@ void ofApp::setup(){
 	// 4K is set as the starting resolution to help
 	// assess performance with different options.
 	// It can be changed using the 'S' key.
-	senderWidth  = 3480;
-	senderHeight = 2160;
-
-	// Create an RGBA fbo for collection of data
-	m_fbo.allocate(senderWidth, senderHeight, GL_RGBA);
-
-	// Option : set readback
-	// Pixel data extraction from fbo or texture
-	// is optimised using two OpenGL pixel buffers (pbo's)
-	// Note that the speed can vary with different CPUs
-	ndiSender.SetReadback();
-
-	// Option : set the framerate
-	// NDI sending will clock at the set frame rate 
-	// The application cycle will also be clocked at that rate
-	//
-	// Can be set as a whole number, e.g. 60, 30, 25 etc
-	// ndiSender.SetFrameRate(30);
-	//
-	// Or as a decimal number e.g. 29.97
-	// ndiSender.SetFrameRate(29.97);
-	//
-	// Or as a fraction numerator and denominator
-	// as specified by the NDI SDK - e.g. 
-	// NTSC 1080 : 30000, 1001 for 29.97 fps
-	// NTSC  720 : 60000, 1001 for 59.94fps
-	// PAL  1080 : 30000, 1200 for 25fps
-	// PAL   720 : 60000, 1200 for 50fps
-	// ndiSender.SetFrameRate(30000, 1001);
-	//
-	// Note that the NDI sender frame rate should match the render rate
-	// so that it's displayed smoothly with NDI Studio Monitor.
-	//
-	// ndiSender.SetFrameRate(30); // Disable this line for default 60 fps.
-
-	// Option : set NDI asynchronous sending
-	// If disabled, the render rate is clocked to the sending framerate. 
-	ndiSender.SetAsync();
-
-	// Create a sender with RGBA output format
-	bInitialized = ndiSender.CreateSender(senderName.c_str(), senderWidth, senderHeight);
-
-	// create a reciever
-	// rInitialized = ndi
 
 
+	rInitialized = ndiReceiver.CreateReceiver();
+	std::cout << "RECEIVER CREATED?: " << (rInitialized ? "true" : "false") << std::flush;
 
-	// 3D drawing setup for the demo graphics
-	glEnable(GL_DEPTH_TEST); // enable depth comparisons and update the depth buffer
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // Really Nice Perspective Calculations
-	ofDisableAlphaBlending(); // Or we can get trails with the rotating cube
 
-	// ofDisableArbTex is needed to create a texture with
-	// normalized coordinates for bind in DrawGraphics
-	ofDisableArbTex(); 
-	textureImage.load("NDI_Box.png");
+    // Get the dimensions of the NDI source
+    unsigned int senderWidth = ndiReceiver.GetSenderWidth();
+    unsigned int senderHeight = ndiReceiver.GetSenderHeight();
 
-	// Back to default pixel coordinates
-	ofEnableArbTex();
+	senderWidth = 1169;
+	senderHeight = 829;
 
-	// Workaround for mirrored texture with ofDrawBox and ofBoxPrimitive for Openframeworks 10.
-#if OF_VERSION_MINOR >= 10
-	textureImage.mirror(false, true);
-#endif
+    // Setup the framebuffer with the dimensions of the NDI source
+    ndi_fbo.allocate(senderWidth, senderHeight, GL_RGBA);
 
-	// Cube rotation
-	rotX = 0;
-	rotY = 0;
-
-	// Image for pixel sending examples
-	// Loads as RGB but is converted to RGBA by sending functions
-	ndiImage.load("Test_Pattern.jpg");
-
-	// Make it the same size as the sender
-	ndiImage.resize(senderWidth, senderHeight);
 
 	// If Wait For Vertical Sync is applied by the driver,
 	// frame rate will be limited to multiples of the sync interval.
@@ -167,8 +108,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update() {
-
-
+	ndiReceiver.ReceiveImage(ndi_fbo);
 }
 
 //--------------------------------------------------------------
@@ -177,13 +117,35 @@ void ofApp::draw() {
 	ofBackground(0);
 	ofSetColor(255, 255, 255, 255);
 
-	// Check success of CreateSender
-	if (!bInitialized)
+
+
+	/// FOR RECEIVING NDI
+
+	// checl success of createREceiver
+
+	if(!rInitialized)
 		return;
+	
+	ndi_fbo.begin();
+	ofSetColor(255, 255, 255); // Set color to white for normal rendering
+    ndi_fbo.draw(0, 0);
+	ndi_fbo.end();
+
+
+
+
+
+
+
+	/// FOR SENDING NDI ///
+
+	// Check success of CreateSender
+	// if (!bInitialized)
+	// 	return;
 
 	// Option 1 : Send ofFbo
-	DrawGraphics();
-	ndiSender.SendImage(m_fbo);
+	// DrawGraphics();
+	// ndiSender.SendImage(m_fbo);
 
 	// Option 2 : Send ofTexture
 	// DrawGraphics();
@@ -296,6 +258,7 @@ void ofApp::exit() {
 	// The sender must be released 
 	// or NDI sender discovery will still find it
 	ndiSender.ReleaseSender();
+	ndiReceiver.ReleaseFinder();
 }
 
 //--------------------------------------------------------------

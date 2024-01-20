@@ -40,11 +40,14 @@ class ofApp : public ofBaseApp {
 		void keyPressed(int key);
 
 		ofxNDIsender ndiSender;        // NDI sender
+		ofxNDIreceiver ndiReceiver;
 		std::string senderName;        // Sender name
 		unsigned int senderWidth = 0;  // Width of the sender output
 		unsigned int senderHeight = 0; // Height of the sender output
 		bool bInitialized = false;
+		bool rInitialized = false;
 		ofFbo m_fbo;                   // Fbo used for graphics and sending
+		ofFbo ndi_fbo;
 		ofImage textureImage;          // Texture image for the 3D cube graphics
 		float rotX = 0.0f;
 		float rotY = 0.0f;             // Cube rotation increment
