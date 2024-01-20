@@ -1,62 +1,61 @@
 #include "ofMain.h"
 #include "ofApp.h"
 
+// Force programmable renderer for testing
+// #define FORCE_PROGRAMMMABLE
+#ifdef FORCE_PROGRAMMMABLE
+#include "ofGLProgrammableRenderer.h"
+#endif
+
+/*
+	=========================================================================
+	This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	=========================================================================
+*/
+
+//--------------------------------------------------------------
+// to change options for console window (Visual Studio)
+//
+// Properties > Linker > System > Subsystem
+//    for console : Windows (/SUBSYSTEM:CONSOLE)
+//
+//    for Window : Windows (/SUBSYSTEM:WINDOWS)
+//
+// Click APPLY and OK. Then make changes to Main as below
+//--------------------------------------------------------------
+
+// for default console
 //========================================================================
-int main( ){
-    //--------------oldsinglewindowsetup
-    /*
-     ofSetupOpenGL(1024, 1024, OF_WINDOW);
-     ofRunApp(new ofApp());
-     */
-    
-    
-    
-    //---------------------------------
-    //dualwindowsetup
-    ofGLFWWindowSettings settings;
-    settings.setGLVersion(3,3);
+int main() {
+//
+// for window without console
+//========================================================================
+// int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd) {
+	
 
-    
-    //settings.setSize(1280, 720);
-    //settings.setSize(720, 480);
-    settings.setSize(640,480);
-    //settings.setSize(1920,1080);
-    
-     //settings.setSize(1280,960);
-     //settings.setSize(1024,1024);
-    
-     //settings.setSize(1280,720);
-    //
-    //settings.setSize(1024, 768);
-    
-    //settings.setSize(1080,1080);
-    
-   
-    
-    //settings.setSize(512, 512);
+#ifdef FORCE_PROGRAMMMABLE
+	ofGLWindowSettings settings;
+	settings.setSize(640, 360);
+	settings.setGLVersion(3, 2);
+	ofCreateWindow(settings);
+#else
+	ofSetupOpenGL(640, 360, OF_WINDOW); // <-------- setup the GL context
+#endif
 
-    settings.setPosition(ofVec2f(400,80));
-    settings.resizable = true;
-    //settings.decorated = false;
-    shared_ptr<ofAppBaseWindow> mainWindow = ofCreateWindow(settings);
-    
-    settings.setSize(400, 720);
-    settings.setPosition(ofVec2f(0,80));
-    settings.resizable = true;
-   // settings.doubleBuffering=false;
-    shared_ptr<ofAppBaseWindow> guiWindow = ofCreateWindow(settings);
-    
-    shared_ptr<ofApp> mainApp(new ofApp); // these are running constructors
-    shared_ptr<GuiApp> guiApp(new GuiApp);
-    
-    // Important! - Settings the gui pointer in OfApp instance to
-    // be a pointer to the gui
-    mainApp->imgui = guiApp;
-    
-    ofRunApp(guiWindow, guiApp);
-    ofRunApp(mainWindow, mainApp);
-    ofRunMainLoop();
-    
+	// this kicks off the running of my app
+	// can be OF_WINDOW or OF_FULLSCREEN
+	// pass in width and height too:
+	ofRunApp( new ofApp());
+
 }
-
-

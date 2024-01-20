@@ -1,850 +1,386 @@
+/*
+	OpenFrameworks NDI sender example
+
+	using the NewTek NDI SDK to send the frames via network
+
+	http://NDI.NewTek.com
+
+	Copyright (C) 2016-2023 Lynn Jarvis.
+
+	http://www.spout.zeal.co
+
+	With help from Harvey Buchan
+
+	https://github.com/Harvey3141
+
+	=========================================================================
+	This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	=========================================================================
+
+	16.10.16 - ofxNDI sender example
+	03.11.16 - corrected CreateSender dimensions
+			 - initialize pixel buffers
+			 - BGRA conversion by OpenGL during glReadPixels
+	07.11.16 - Included PBO for data read
+	09.02.17 - Updated to ofxNDI with Version 2 NDI SDK
+			 - Added changes by Harvey Buchan to optionally
+			   specify RGBA with Version 2 NDI SDK
+	22.02.17 - Updated to Openframeworks 0.9.8
+	01.04.17 - update for ofxNDI with NDI Version 3
+	06.11.17 - update for ofxNDI with NDI Version 3.5
+			 - minor changes
+	08.07.18 - Update for Openframeworks 10
+			 - Include all SendImage option examples
+	10.11.19 - Revise for ofxNDI for NDI SDK Version 4.0
+	08.12.20 - Change from sprintf to std::string for on-screen display
+	03.01.22 - Revise for ofxNDI with YUV sending option
+	24.04.22 - Update examples with Visual Studio 2022
+	04.07.22 - Update with revised ofxNDI. Rebuild x64/MD.
+	06.07.22 - SenderName string instead of char to avoid sprintf
+			 - Limit fps string to 2 decimal places instead of format with sprintf
+			 - Windows only for BringWindowToTop
+	05-08-22 - Update to NDI 5.5 (ofxNDI and bin\Processing.NDI.Lib.x64.dll)
+	20-11-22 - Update to NDI 5.5.2 (ofxNDI and bin\Processing.NDI.Lib.x64.dll)
+	11.12.22 - Round fps display first to avoid integer truncation
+			 - Use timing for frame interval instead of monitor sync
+	27-04-23 - Update from NDI 5.5.2 to 5.5.4 (ofxNDI and bin\Processing.NDI.Lib.x64.dll)
+
+
+*/
 #include "ofApp.h"
-#include "iostream"
-
-
-
-
-//char video_path[] = "/Users/rudyharricks/Documents/VFX/final-vids/vidart1-FINAL/ForUnderFeedback.mov";
-char video_path[] = "/Users/rudyharricks/Documents/VFX/final-vids/FALLIN2PLACE/fallin2place-ROUGH-CUT-7.mp4";
-//char video_path[] = "/Users/rudyharricks/Documents/GRAPHICS/outputs/platfieldFOrSYBNTH2.mov";
-
-int width=1920;
-int height=1440;
-
-int vid_width;
-int vid_height;
-
-int ofwidth;
-int ofheight;
-
-// need to change this every time replugged in
-int port_id = 3;
-
-float az = 1.0;
-float sx = .5;
-float dc = 0;
-int dd = 0;
-float time1;
-const int fbob = 15;
-
-// lumavalue
-float ff=0.0;
-// luma threshold
-float gg=0.0;
-// key colour
-float hh=0.0;
-// key threshold
-float jj=0.1;
-
-//delayscale
-float aa=1.0;
-
-
-float red = 1.0;
-float green = 1.0;
-float blue = 1.0;
-
-float hue = 1.0;
-float saturation = 1.0;
-float brightness = 1.0;
-
-float camscaler = 1.0;
-float pos_scaler = 1.0;
-float centre_scale = 1.0;
-float rotater = 0.0;
-
-float midi12 = 1.0;
-float midi13 = 0.0;
-float midi14 = 0.0;
-
-bool second_vid_playing = false;
-
-
-
-ofFbo framebufferDelay[fbob];
-ofFbo framebufferDelayNDI[fbob];
 
 //--------------------------------------------------------------
-
-
-
 void ofApp::setup(){
-    
-//    imgui = std::make_shared<GuiApp>(); // Initialize imgui to point to a GuiApp object
-//    imgui->setup(); // Call the setup method of GuiApp object if needed
 
-    // //setup gui
-    NDI_setup();
-    gui.setup();
-   // Starting value, min, and max
-    
-    gui.add(sxSlider.setup("sx MIX", 0.5, -10.0, 10.0));
-    gui.add(ddSlider.setup("dd DELAY AMOUNT", 0, -fbob, fbob));
-    
-    gui.add(ffSlider.setup("ff LUMA VAL", 0.1, 0, 1.0));
-    gui.add(ggSlider.setup("gg LUMA THRESH", 0.1, 0.0, 1.0));
+	senderName = "Openframeworks NDI Sender";
+	ofSetWindowTitle(senderName); // show it on the title bar
 
-    gui.add(hhSlider.setup("hh  KEY COLOUR", 1.0, 0.0, 1.0));
-    gui.add(jjSlider.setup("jj  KEY THRESHOLD", 0.1, 0.0, 1.0));
-    
-    
-    
+	#ifdef _WIN64
+	cout << "\nofxNDI example sender - 64 bit" << endl;
+	#else // _WIN64
+	cout << "\nofxNDI example sender - 32 bit" << endl;
+	#endif // _WIN64
 
-    gui.add(aaSlider.setup("aa DELAY SCALE", 0.0, -10.0, 10.0));
-    gui.add(videoPositionSlider.setup("Video Position", 0.0, 0.0, 1.0));
-    gui.add(volumeSlider.setup("Volume", 1.0, 0.0, 1.0));
+	cout << ndiSender.GetNDIversion() << " (https://www.ndi.tv/)" << endl;
+
+	// Set the dimensions of the sender output here
+	// This is independent of the display window size.
+	// 4K is set as the starting resolution to help
+	// assess performance with different options.
+	// It can be changed using the 'S' key.
+	senderWidth  = 3480;
+	senderHeight = 2160;
+
+	// Create an RGBA fbo for collection of data
+	m_fbo.allocate(senderWidth, senderHeight, GL_RGBA);
+
+	// Option : set readback
+	// Pixel data extraction from fbo or texture
+	// is optimised using two OpenGL pixel buffers (pbo's)
+	// Note that the speed can vary with different CPUs
+	ndiSender.SetReadback();
+
+	// Option : set the framerate
+	// NDI sending will clock at the set frame rate 
+	// The application cycle will also be clocked at that rate
+	//
+	// Can be set as a whole number, e.g. 60, 30, 25 etc
+	// ndiSender.SetFrameRate(30);
+	//
+	// Or as a decimal number e.g. 29.97
+	// ndiSender.SetFrameRate(29.97);
+	//
+	// Or as a fraction numerator and denominator
+	// as specified by the NDI SDK - e.g. 
+	// NTSC 1080 : 30000, 1001 for 29.97 fps
+	// NTSC  720 : 60000, 1001 for 59.94fps
+	// PAL  1080 : 30000, 1200 for 25fps
+	// PAL   720 : 60000, 1200 for 50fps
+	// ndiSender.SetFrameRate(30000, 1001);
+	//
+	// Note that the NDI sender frame rate should match the render rate
+	// so that it's displayed smoothly with NDI Studio Monitor.
+	//
+	// ndiSender.SetFrameRate(30); // Disable this line for default 60 fps.
+
+	// Option : set NDI asynchronous sending
+	// If disabled, the render rate is clocked to the sending framerate. 
+	ndiSender.SetAsync();
+
+	// Create a sender with RGBA output format
+	bInitialized = ndiSender.CreateSender(senderName.c_str(), senderWidth, senderHeight);
+
+	// create a reciever
+	// rInitialized = ndi
 
 
-    
-    // // Add listeners to your sliders
-    sxSlider.addListener(this, &ofApp::sxChanged);
-    ddSlider.addListener(this, &ofApp::ddChanged);
-    ffSlider.addListener(this, &ofApp::ffChanged);
-    ggSlider.addListener(this, &ofApp::ggChanged);
-    hhSlider.addListener(this, &ofApp::hhChanged);
-    aaSlider.addListener(this, &ofApp::aaChanged);
-    jjSlider.addListener(this, &ofApp::jjChanged);
-    videoPositionSlider.addListener(this, &ofApp::scrubVideo);
-    volumeSlider.addListener(this, &ofApp::volumeChanged);
 
+	// 3D drawing setup for the demo graphics
+	glEnable(GL_DEPTH_TEST); // enable depth comparisons and update the depth buffer
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST); // Really Nice Perspective Calculations
+	ofDisableAlphaBlending(); // Or we can get trails with the rotating cube
 
+	// ofDisableArbTex is needed to create a texture with
+	// normalized coordinates for bind in DrawGraphics
+	ofDisableArbTex(); 
+	textureImage.load("NDI_Box.png");
 
-    // //_______________________________________________________________________________________
+	// Back to default pixel coordinates
+	ofEnableArbTex();
 
-    ofSetVerticalSync(true);
-    ofSetFrameRate(30);
-    ofBackground(0);
-//    ofHideCursor();
-    
-//    webcam.setup(width,height);
+	// Workaround for mirrored texture with ofDrawBox and ofBoxPrimitive for Openframeworks 10.
+#if OF_VERSION_MINOR >= 10
+	textureImage.mirror(false, true);
+#endif
 
-    
-    // load in videos
-    videoName[0].load(video_path);
-    videoName[1].load("/Users/rudyharricks/Documents/VFX/final-vids/FALLIN2PLACE/fallin2place-ROUGH-CUT-7.mp4");
+	// Cube rotation
+	rotX = 0;
+	rotY = 0;
 
-    videoName[0].play();
+	// Image for pixel sending examples
+	// Loads as RGB but is converted to RGBA by sending functions
+	ndiImage.load("Test_Pattern.jpg");
 
-    vid_width = videoName[0].getWidth();
-    vid_height = videoName[0].getHeight();
-    
-    ofwidth = ofGetWidth();
-    ofheight = ofGetHeight();
+	// Make it the same size as the sender
+	ndiImage.resize(senderWidth, senderHeight);
 
-    allocateAndDeclareSundries();
+	// If Wait For Vertical Sync is applied by the driver,
+	// frame rate will be limited to multiples of the sync interval.
+	// Disable it here and use async NDI send for best performance.
+	ofSetVerticalSync(false);
 
-    shader1.load("shadersES2/shader1");
-    camShader.load("camShader/shader1");
-
-    for (int i=0;i<fbob;i++){
-        framebufferDelay[i].allocate(vid_width,vid_height);
-        framebufferDelay[i].begin();
-        ofClear(0,0,0,255);
-        framebufferDelay[i].end();
-    }
-    
-    for (int i=0;i<fbob;i++){
-        framebufferDelayNDI[i].allocate(ofGetWidth(),ofGetHeight());
-        framebufferDelayNDI[i].begin();
-        ofClear(0,0,0,255);
-        framebufferDelayNDI[i].end();
-    }
-
-    
-    // list all available midi devices
-    midiIn.listInPorts();
-    midiOut.listOutPorts();
-    
-    
-    // open a midi port by number (you may need to change this)
-    midiIn.openPort(port_id);
-//    midiOut.openPort(port_id);
-    
-    // optionally add ofApp as a listener for incoming messages
-    midiIn.addListener(this);
-    
-    videoName[0].setVolume(0);
-
-}
-//------------------------------------------------------------
-void ofApp::allocateAndDeclareSundries(){
-    framebuffer0.allocate(vid_width,vid_height);
-    framebuffer0.begin();
-    ofClear(0,0,0,255);
-    framebuffer0.end();
-    // allocating by ofGet() instead ofd ndi_fboget somehow made this work
-    ndi_fbo.allocate(ofGetWidth(), ofGetHeight());
-    
-    
-    ndi_fbo.begin();
-    ofClear(0,0,0,255);
-    ndi_fbo.end();
-
-}
-//--------------------------------------------------------------
-//void ofApp::inputSetup(){
-//
-//    webcam.setDesiredFrameRate(30);
-//    webcam.initGrabber(width,height);
-//}
-//--------------------------------------------------------------
-void ofApp::update(){
-    time1 += 0.01;
-    videoName[0].update();
-    NDI_update();
-
-    // webcam.update(); // grab another frame from the camera
-
-    if(second_vid_playing){
-        videoName[1].update();
-    }
-    
+	// Limit frame rate using timing instead
+	ofSetFrameRate(60);
 
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void ofApp::update() {
 
 
+}
 
-    
-    framebuffer0.begin();  // Start drawing to the framebuffer
-    ofClear(0, 0, 0, 255);  // Clear the framebuffer
-    // shader1.begin();  // Begin the shader
+//--------------------------------------------------------------
+void ofApp::draw() {
 
-    // shader1.setUniform1f("sx",sx);
+	ofBackground(0);
+	ofSetColor(255, 255, 255, 255);
 
-    camShader.begin();
+	// Check success of CreateSender
+	if (!bInitialized)
+		return;
 
-    camShader.setUniform1f("lumavalue", ff);
-    
-    camShader.setUniform1f("lumathreshold", gg);
+	// Option 1 : Send ofFbo
+	DrawGraphics();
+	ndiSender.SendImage(m_fbo);
 
-    camShader.setUniform1f("keycolour", hh);
+	// Option 2 : Send ofTexture
+	// DrawGraphics();
+	// ndiSender.SendImage(m_fbo.getTexture());
 
-    camShader.setUniform1f("keythreshold", jj);
-    
-    camShader.setUniform1f("delayscale",aa);
+	// Option 3 Send ofImage
+	// ofImage is converted to RGBA if not already
+	// ndiImage.draw(0, 0, ofGetWidth(), ofGetHeight());
+	// ndiSender.SendImage(ndiImage);
 
-    camShader.setUniform1f("camscaler",camscaler);
+	//
+	// Send pixels
+	//
+	// GPU download from a texture is not necessary
+	// because pixel data is already in CPU memory.
+	// GPU Readback and YUV Format options are not used.
+	// There is no change if these options are selected.
+	// Performance may be optimised by Async sending.
+	//
 
-    camShader.setUniform1f("pos_scaler",pos_scaler);
+	// Option 4 Send ofPixels
+	// ofPixels is converted to RGBA if not already
+	// ndiImage.draw(0, 0, ofGetWidth(), ofGetHeight());
+	// ndiSender.SendImage(ndiImage.getPixels());
 
-    camShader.setUniform3f("rgb_multiplier", red, green, blue);
-    
-    camShader.setUniform3f("hsv_multiplier", hue, saturation, brightness);
+	// Option 5 Send char buffer
+	// Pixels must be rgba
+	// if (ndiImage.getImageType() != OF_IMAGE_COLOR_ALPHA)
+	 	// ndiImage.setImageType(OF_IMAGE_COLOR_ALPHA);
+	// ndiImage.draw(0, 0, ofGetWidth(), ofGetHeight());
+	// ndiSender.SendImage(ndiImage.getPixels().getData(), senderWidth, senderHeight);
+	
+	//
+	// Show what it's sending
+	//
 
-    
-    // DO A CHECK FOR VIDEO OR NDI SOURCE
-//    switch(imgui->source_select){
-//        case 0:
-//            camShader.setUniformTexture("video_feed",videoName[0].getTexture(),0);
-//            break;
-//        case 1:
-//            camShader.setUniformTexture("video_feed",ndi_fbo.getTexture(),0);
-//            break;
-//    }
-    // camShader.setUniformTexture("framebufferdelay",az);
+	if (ndiSender.SenderCreated()) {
 
-    if(imgui->source_select == 0){
-        camShader.setUniformTexture("video_feed",videoName[0].getTexture(),0);
-        camShader.setUniformTexture("framebufferdelay",framebufferDelay[abs(dd)%fbob].getTexture(),1);
-    }
-    if(imgui->source_select == 1){
-        camShader.setUniformTexture("video_feed",ndi_fbo.getTexture(),0);
-        camShader.setUniformTexture("framebufferdelay",framebufferDelayNDI[abs(dd)%fbob].getTexture(),1);
-    }
-    
-    
-    camShader.setUniform2f("u_resolution",width,height);
-    camShader.setUniform1f("mixx",sx);
-    
-    
-    // camShader.setUniformTexture("framebufferdelay", framebufferDelay[5], 1);
-    
-    camShader.setUniform1f("midi12", midi12);
-    
-    camShader.setUniform1f("midi13", midi13);
+		std::string str;
+		str = "Sending as : ["; str += senderName; str += "] (";
+		str += to_string(senderWidth); str += "x"; str += to_string(senderHeight); str += ")";
+		ofDrawBitmapString(str, 20, 25);
+		// Round first to avoid integer truncation
+		str = "fps : "; str += to_string((int)roundf(ofGetFrameRate()));
+		ofDrawBitmapString(str, ofGetWidth() - 140, 25);
 
-    camShader.setUniform1f("midi14", midi14);
+		// Show sending options
+		ofDrawBitmapString("Sending options", 20, 48);
 
+		str = " NDI fps  (""F"") : ";
+		framerate = ndiSender.GetFrameRate();
+		str += std::to_string(framerate);
+		// Limit fps display to 2 decimal places
+		size_t s = str.rfind(".");
+		str = str.substr(0, s+3);
+		ofDrawBitmapString(str, 20, 66);
 
-    camShader.setUniform1f("time", time1);
-    ofSetRectMode(OF_RECTMODE_CENTER); //set rectangle mode to the center
-    ofDrawRectangle(ofGetWidth()/2, ofGetHeight()/2 , ofGetWidth(), ofGetHeight());
-    
-    // HERE WE DRAW OTHER layers
-    
-     if(second_vid_playing){
-        camShader.setUniformTexture("video_feed",videoName[1].getTexture(),0);
-        ofDrawRectangle(ofGetWidth()/2, ofGetHeight()/2 , ofGetWidth(), ofGetHeight());
-     }
-    
-    
-   
-    // webcam.draw(0,0,1024,768);
-    camShader.end();
+		str = " Async    (""A"") : ";
+		str += to_string((int)ndiSender.GetAsync());
+		ofDrawBitmapString(str, 20, 82);
 
-    // where the issue lies
-    framebuffer0.end();
-    
-    framebuffer0.setAnchorPoint(0, 0);
+		str = " Readback (""P"") : ";
+		str += to_string((int)ndiSender.GetReadback());
+		ofDrawBitmapString(str, 20, 98);
 
-    framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
-    // if(imgui->source_select == 0){
-    //     framebuffer0.draw(0,0,ofwidth,ofheight); // sends frame to tex 0 on shader
-    // }
-    // if(imgui->source_select == 1){
-    //     ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
-    // }
+		str = " Format (""Y""""/""""R"") : ";
+		if (ndiSender.GetFormat() == NDIlib_FourCC_video_type_UYVY)
+			str += "YUV ";
+		else
+			str += "RGBA ";
+		ofDrawBitmapString(str, 20, 114);
 
-    if(imgui->source_select == 0){
-        framebufferDelay[0].begin();
-    }
-    if(imgui->source_select == 1){
-        framebufferDelayNDI[0].begin();
-    }
-    /*
+		str = " Size     (""S"") : ";
+		str += to_string((int)senderWidth);
+		str += "x";
+		str += to_string((int)senderHeight);
+		ofDrawBitmapString(str, 20, 130);
 
-    // Calculate new width and height after scaling
-    float newWidth = vid_width * centre_scale;
-    float newHeight = vid_height *  centre_scale;
+	}
 
-    // Calculate starting X and Y positions to draw the FBO centered
-    float startX = (vid_width - newWidth) / 2.0;
-    float startY = (vid_height - newHeight) / 2.0;
-    
-    */
+}
 
-    // Draw the FBO
-    framebuffer0.draw(0, 0, ofwidth, ofheight);
-    /*
-    if(imgui->source_select == 0){
-//        framebuffer0.draw(startX, startY, newWidth, newHeight);
-        framebuffer0.draw(0, 0, vid_width, vid_height);
+void ofApp::DrawGraphics() {
 
-    }
-    if(imgui->source_select == 1){
-        ndi_fbo.draw(0, 0, ndi_fbo.getWidth(), ndi_fbo.getHeight());
-    }
-    */
+	// Draw graphics into an fbo used for the examples
+	m_fbo.begin();
+	ofEnableDepthTest();
+	ofClear(13, 25, 76, 255);
+	ofPushMatrix();
+	ofTranslate((float)senderWidth / 2.0, (float)senderHeight / 2.0, 0);
+	ofRotateYDeg(rotX);
+	ofRotateXDeg(rotY);
+	textureImage.getTexture().bind();
+	ofDrawBox(0.4*(float)senderHeight);
+	ofPopMatrix();
+	ofDisableDepthTest();
+	m_fbo.end();
 
-    framebuffer0.setAnchorPoint(ofwidth/2, ofheight/2);
-//    ndi_fbo.setAnchorPoint(ndi_fbo.getWidth()/2, ndi_fbo.getHeight()/2);
+	// Rotate the cube
+	rotX += 0.75;
+	rotY += 0.75;
 
+	// Draw the fbo result fitted to the display window
+	m_fbo.draw(0, 0, ofGetWidth(), ofGetHeight());
 
-    //_______________________________----------------------------------------
-    // FOR NORMAL FBO
-    
-    float fboCenterX = ofwidth / 2;
-    float fboCenterY = ofheight / 2;
+}
 
-    // Translate to the center of the FBO
-    ofTranslate(fboCenterX, fboCenterY, 0);
-    
-    // Apply the scaling
-    ofScale(centre_scale, centre_scale, centre_scale);
-//    ofRotateDeg(45, 0, 0, 1);
-
-    // Translate back by the negative offset of the FBO's center
-    framebuffer0.draw(0, 0);
-    // if(imgui->source_select == 0){
-    //     framebuffer0.draw(0, 0);
-    // }
-//    ofRotateDeg(-45, 0, 0, 1);
-
-
-    ofTranslate(-fboCenterX, -fboCenterY, 0);
-    
-    //_______________________________----------------------------------------
-    // FOR NDI FBO
-    // if(imgui->source_select == 1){
-    //     ndi_fbo.draw(0, 0);
-    // }
-    
-    
-
-    // Draw the FBO
-    
-    if(imgui->source_select == 0){
-        framebufferDelay[0].end();
-    }
-    if(imgui->source_select == 1){
-        framebufferDelayNDI[0].end();
-    }
-
-    
-//    if(imgui->source_select == 0){
-//        framebufferDelay[0].end();
-//    }
-    
-//    if(imgui->source_select == 1){
-//        framebufferDelayNDI[0].end();
-//    }
-
-
-
-    if(imgui->source_select == 0){
-        for (int i = fbob-1; i > 0; i--) {
-            framebufferDelay[i].begin();
-            framebufferDelay[i-1].draw(0, 0, ofwidth, ofheight); // calls draw on every frame delay so eah are drawn
-            framebufferDelay[i].end();
-        }
-
-    }
-
-    if(imgui->source_select == 1){
-        for (int i = fbob-1; i > 0; i--) {
-            framebufferDelayNDI[i].begin();
-            framebufferDelayNDI[i-1].draw(0, 0, ofwidth, ofheight); // calls draw on every frame delay so eah are drawn
-            framebufferDelayNDI[i].end();
-        }
-    }
-
-    // videoName.draw(0,0,1024,768);
-    // ofDrawRectangle(64,64, 64, 64);
-
-    ofSetHexColor(0xffffff);
-    ofDrawBitmapString("fps: " +ofToString(ofGetFrameRate()) + "\n" +
-    "to mix between cam and framebuffer delay press 's' and 'x' \n"
-    "delay time = 'd' and 'c' \n"
-    "luma value = 'f' and 'v' \n"
-    "luma threshold = 'g' and 'b' \n"
-    "key colour = 'h' and 'n' \n"
-    "key threshold = 'j' and 'm' \n"
-    "delay scale = 'a' and 'z' \n"
-    
-    
-    , 8, ofGetHeight()-30);
-    
-    // ofDrawBitmapString("Volume: " + ofToString(videoName.getVolume()), 8, ofGetHeight() - 60);
-
-
-    gui.draw();
-
-
-    
-
+//--------------------------------------------------------------
+void ofApp::exit() {
+	// The sender must be released 
+	// or NDI sender discovery will still find it
+	ndiSender.ReleaseSender();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-        //here is how i map controls from the keyboard
-    
-    //increment and decrement sx
-    if (key == 's') {sx += .1;     printf("%f\n",sx);}
-    if (key == 'x') {sx -= .1;     printf("%f\n",sx);}
 
-    
-    //increment and decrement dd
-    if (key == 'd') {dd += 1;       printf("%d\n",dd);}
-    if (key == 'c') {dd -= 1;       printf("%d\n",dd);}
+	std::string str;
+	framerate = ndiSender.GetFrameRate(); // update global fps value
+	double fps = framerate; // for entry
+	int width, height = 0; // for entry
 
-    if(key=='a'){aa+=0.1;}
-    if(key=='z'){aa-=0.1;}
+	switch(key)
+	{
 
-    if(key=='f'){ff+=0.1;}
-    if(key=='v'){ff-=0.1;}
+	case 'f':
+	case 'F':
+		{
+			str = std::to_string(framerate);
+			size_t s = str.rfind(".");
+			str = str.substr(0, s+3);
+			str = ofSystemTextBoxDialog("Frame rate", str);
+			if (!str.empty()) {
+				fps = stod(str);
+				if (fps <= 60.0 && fps >= 10.0) {
+					framerate = fps;
+					ndiSender.SetFrameRate(fps);
+				}
+			}
+		}
+		break;
 
-    if(key=='g'){gg+=0.1;}
-    if(key=='b'){gg-=0.1;}
-    
-    if(key=='h'){hh+=0.01;}
-    if(key=='n'){hh-=0.01;}
+	case 'a':
+	case 'A':
+		bAsync = !bAsync;
+		ndiSender.SetAsync(bAsync);
+		break;
 
-    if(key=='j'){jj+=0.01;}
-    if(key=='m'){jj-=0.01;}
+	case 'p':
+	case 'P':
+		bReadback = !bReadback;
+		ndiSender.SetReadback(bReadback);
+		break;
 
-    if(key==';'){
-        centre_scale+=0.1;
-        printf("centre_scale: %f\n", centre_scale);
-    }
-    if(key=='/'){
-        centre_scale-=0.1;
-        printf("centre_scale: %f\n", centre_scale);
-    }
-    if(key=='t'){
-        imgui->source_select=0;
-    }
+	case 'y':
+	case 'Y':
+		ndiSender.SetFormat(NDIlib_FourCC_video_type_UYVY);
+		break;
 
+	case 'r':
+	case 'R':
+		ndiSender.SetFormat(NDIlib_FourCC_video_type_RGBA);
+		break;
 
-    if (key == ',') {
-        float frameLength = 1.0 / videoName[0].getTotalNumFrames();
-        float newPosition = videoName[0].getPosition() - (15 * frameLength);
-        videoName[0].setPosition(ofClamp(newPosition, 0.0, 1.0));
-    }
+	case 's':
+	case 'S':
+		str = ofSystemTextBoxDialog("Image size", to_string(senderWidth) + "x" + to_string(senderHeight));
+		if (!str.empty()) {
+			width = height = 0;
+			if (!str.empty()) {
+				std::size_t pos = str.find("x");
+				std::string w = str.substr(0, pos);
+				width = stoi(w);
+				std::string h = str.substr(pos + 1, str.length());
+				height = stoi(h);
+				if (width > 99 && width < 4100 && height > 100 && height <= 4100) {
+					std::string name = ndiSender.GetSenderName();
+					senderWidth = (unsigned int)width;
+					senderHeight = (unsigned int)height;
+					// Resize the drawing fbo to the same size as the sender
+					m_fbo.allocate(senderWidth, senderHeight, GL_RGBA);
+					// And the demo image
+					ndiImage.resize(senderWidth, senderHeight);
+					// Adapt NDI sender to the size change
+					if (ndiSender.SenderCreated())
+						ndiSender.UpdateSender(senderWidth, senderHeight);
+				}
+			}
+		}
+		break;
+	}
 
-    if (key == '.') {
-        float frameLength = 1.0 / videoName[0].getTotalNumFrames();
-        float newPosition = videoName[0].getPosition() + (15 * frameLength);
-        videoName[0].setPosition(ofClamp(newPosition, 0.0, 1.0));
-    }
-    if(key == 'p') {
-        videoName[0].setPaused(!videoName[0].isPaused());
-    }
-    
-    if (key == 'q') {
-        framebuffer0.begin();
-        ofClear(0,0,0,255);
-        framebuffer0.end();
+	// Show the main window
+#ifdef TARGET_WIN32
+	BringWindowToTop(ofGetWin32Window());
+#endif
 
-        
-        for (int i = fbob-1; i > 0; i--) {
-//            framebufferDelay[i].allocate( width,  height);
-           framebufferDelay[i].begin();
-            ofClear(0, 0, 0, 255);  // Clear the framebuffer
-           framebufferDelay[i].end();
-        }
-       for (int i = fbob-1; i > 0; i--) {
-//            framebufferDelay[i].allocate( width,  height);
-           framebufferDelayNDI[i].begin();
-            ofClear(0, 0, 0, 255);  // Clear the framebuffer
-           framebufferDelayNDI[i].end();
-       }
-
-    }
-
-      
 
 }
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
-
-}
-//--------------------------------------------------------------
-void ofApp::newMidiMessage(ofxMidiMessage& msg) {
-    // handle midi messages here
-    // for example, print the received message to the console
-//    cout << msg.toString() << endl;
-    
-    
-    // get the control number and value of the message
-    
-    int control = msg.control;
-    int value = msg.value;
-    int pitch = msg.pitch;
-    
-    if(msg.status == MIDI_NOTE_ON) {
-        
-        
-        printf("control: %d\n", control);
-        printf("%d", msg.pitch);
-//        printf("%d", msg.channel);
-
-
-        // ΤOP ROW
-        if(pitch == 48) {
-            // SLIDER F7
-            playVideo(1);
-            second_vid_playing = true;
-            printf("loaded new vid");
-            printf("%d", msg.pitch);
-        }
-        if(pitch == 49) {
-            second_vid_playing = false;
-            printf("removed new vid");
-        }
-        if(pitch == 50) {
-
-            
-        }
-        if(pitch == 51) {
-
-        }
-        
-        // SECOND ROW
-        if(pitch == 44) {
-  
-        }
-        if(pitch == 45) {
-
-        }
-        if(pitch == 46) {
-
-            
-        }
-        if(pitch == 47) {
-
-            
-        }
-        
-    }
-    
-    if(msg.status == MIDI_NOTE_OFF) {
-        // ΤOP ROW
-        if(pitch == 48) {
-            second_vid_playing = false;
-            printf("removed new vid");
-            
-        }
-        if(pitch == 49) {
-            
-        }
-        if(pitch == 50) {
-            
-        }
-        if(pitch == 51) {
-            
-        }
-        
-        // SECOND ROW
-        if(pitch == 44) {
-            
-        }
-        if(pitch == 45) {
-            
-        }
-        if(pitch == 46) {
-            
-        }
-        if(pitch == 47) {
-            
-            
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-
-    else if(msg.status == MIDI_AFTERTOUCH) {
-        // cant query the exact note this came from
-        if (pitch == 48){
-            printf("YEAH");
-        }
-    }
-
-    
-    
-    
-    
-    
-    if(msg.status == MIDI_CONTROL_CHANGE) {
-
-        
-        printf("control: %d\n", control);
-
-        // check if the control number corresponds to a specific button
-        if(control == 1) {
-            // SLIDER F1
-            red = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 2) {
-            // SLIDER F2
-            green = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 3) {
-            // SLIDER F3
-            blue = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 4) {
-            // SLIDER F4
-            hue = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 5) {
-            // SLIDER F5
-            saturation = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 6) {
-            // SLIDER F6
-            brightness = ofMap(value, 0, 127, 1.0, 10.0);
-        }
-        if(control == 11) {
-            // SLIDER F7
-            aa = ofMap(value, 0, 127, -10.0, 10.0);
-            printf("%f\n", aa);
-        }
-        if(control == 12) {
-            // SLIDER F7
-
-            midi12 = ofMap(value, 0, 127, 1.0, 2000.0 );
-            printf("%f\n", midi12);
-        }
-        if(control == 13) {
-            // SLIDER F7
-            midi13 = ofMap(value, 0, 127, -200, 200.0);
-            printf("%f\n", midi13);
-        }
-        if(control == 14) {
-            // SLIDER F7
-            midi14 = ofMap(value, 0, 127, -200.0, 200.0);
-            printf("%f\n", midi14);
-        }
-        if(control == 15) {
-            // SLIDER F7
-            camscaler = ofMap(value, 0, 127, 0.0, 2.0);
-            printf("%f\n", camscaler);
-        }
-        if(control == 16) {
-            // SLIDER F7
-            sx = ofMap(value, 0, 127, -10.0, 10.0);
-            printf("%f\n", sx);
-        }
-    }
-}
-//--------------------------------------------------------------
-void ofApp::aaChanged(float &value){
-    aa = value;
-    printf("%f\n", aa);
-}
-//--------------------------------------------------------------
-
-void ofApp::sxChanged(float &value){
-    sx = value;
-    printf("%f\n", sx);
-}
-//--------------------------------------------------------------
-
-void ofApp::ddChanged(int &value){
-    dd = value;
-    printf("%d\n", dd);
-}
-//--------------------------------------------------------------
-void ofApp::ffChanged(float &value){
-    ff = value;
-    printf("%f\n", ff);
-}
-//--------------------------------------------------------------
-void ofApp::ggChanged(float &value){
-    gg = value;
-    printf("%f\n", gg);
-}
-//--------------------------------------------------------------
-void ofApp::hhChanged(float &value){
-    hh = value;
-    printf("%f\n", hh);
-}
-//--------------------------------------------------------------
-void ofApp::jjChanged(float &value){
-    jj = value;
-    printf("%f\n", jj);
-}
-
-void ofApp::scrubVideo(float & value) {
-    if(videoName[0].isLoaded()) {
-        float newPosition = value * videoName[0].getDuration();
-        videoName[0].setPosition(newPosition / videoName[0].getDuration());
-    }
-}
-
-
-void ofApp::volumeChanged(float &value){
-    videoName[0].setVolume(value);
-}
-
-
-void ofApp::exit(){
-    midiIn.closePort();
-    midiIn.removeListener(this);
-}
-
-
-void ofApp::playVideo(int vid){
-//    videoName[1].load("/Users/rudyharricks/Documents/VFX/final-vids/vidart1-FINAL/finalBit2.mov");
-//    videoName[1].load(video_path);
-    videoName[vid].play();
-}
-
-
-//_____----_-_-_-______---__---_--_----____--_-__-_-
-
-void ofApp::NDI_setup(){
-    auto findSource = [](const string &name_or_url) {
-        auto sources = ofxNDI::listSources();
-        if(name_or_url == "") {
-            return make_pair(ofxNDI::Source(), false);
-        }
-        auto found = find_if(begin(sources), end(sources), [name_or_url](const ofxNDI::Source &s) {
-            return ofIsStringInString(s.p_ndi_name, name_or_url) || ofIsStringInString(s.p_url_address, name_or_url);
-        });
-        if(found == end(sources)) {
-            ofLogWarning("ofxNDI") << "no NDI source found by string:" << name_or_url;
-            return make_pair(ofxNDI::Source(), false);
-        }
-        return make_pair(*found, true);
-    };
-    string name_or_url = "";    // Specify name or address of expected NDI source. In case of blank or not found, receiver will grab default(which is found first) source.
-    auto result = findSource(name_or_url);
-    if(result.second ? ndi_receiver_.setup(result.first) : ndi_receiver_.setup()) {
-        ndi_video_.setup(ndi_receiver_);
-    }
-    
-}
-//-------------------------
-
-void ofApp::NDI_update(){
-    if(ndi_receiver_.isConnected()) {
-        ndi_video_.update();
-        if(ndi_video_.isFrameNew()) {
-            ndi_video_.decodeTo(ndi_pixels);
-        }
-    }
-    ndi_fbo.begin();
-    if(ndi_pixels.isAllocated()) {
-        //ofImage ndi_image;
-        ofPushMatrix();
-        ofTranslate(ndi_fbo.getWidth()/2,ndi_fbo.getHeight()/2);
-        ofTranslate(0,0,imgui->ndi_scale);
-        ofImage(ndi_pixels).draw(-ofImage(ndi_pixels).getWidth()/2,-ofImage(ndi_pixels).getHeight()/2);
-        //ofImage(ndi_pixels).draw(0,0);
-        ofPopMatrix();
-    }
-    ndi_fbo.end();
-    
-    
-    
-}
-
-
-
 

@@ -1,0 +1,1597 @@
+{
+	"archiveVersion": "1",
+	"classes": {},
+	"objectVersion": "54",
+	"objects": {
+		"0023FD4E-4CCF-4711-8CAE-BCFC34C46E13": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineGLFW.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineGLFW.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"007FA3AC-FB17-454F-B14C-51ACF56BBA5C": {
+			"children": [
+				"607A3B08-B0C4-4DFC-B3C8-0D80C6C13EA8"
+			],
+			"isa": "PBXGroup",
+			"name": "ofxGui",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"025CE33E-3A17-4A64-B2C7-80C1FE7FA137": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Recv.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Recv.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0342EEC7-0CF1-4078-8833-1CB4102DA42A": {
+			"children": [
+				"C75A40AB-6561-469D-9FA0-1D312B6685FA"
+			],
+			"isa": "PBXGroup",
+			"name": "NDI",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"03544265-C293-4A5E-8AA8-8CF271804C11": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineGLFW.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineGLFW.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0377996E-2DCE-4AF6-B429-12B98C429C75": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxBaseMidi.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxBaseMidi.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0409879B-D001-43DC-96C1-056610E10B6F": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIplatforms.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIplatforms.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0507E38C-56C1-44F4-BB05-9CD223960983": {
+			"fileRef": "3AD6845B-0E05-4E0B-902F-699BE4B1D710",
+			"isa": "PBXBuildFile"
+		},
+		"06DE87EA-25D6-4854-84AF-0CAC8D731365": {
+			"fileRef": "594968F1-DA59-4CEE-B430-A485FF5356C7",
+			"isa": "PBXBuildFile"
+		},
+		"0A197702-DB5A-4EE6-8D12-632541A0ECDA": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "sse2neon.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/sse2neon.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0A37CA2F-0F43-40B2-9408-B8392043E165": {
+			"fileRef": "2C03E06A-2FCB-450D-BB15-D342D71BFAD4",
+			"isa": "PBXBuildFile"
+		},
+		"0B7F4E7A-4632-48E0-A15A-D5AABC46CB74": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxImGuiLoggerChannel.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/ofxImGuiLoggerChannel.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0CB209AB-D154-4B1C-987B-9A06748CCF30": {
+			"fileRef": "8E665686-D1AE-41C3-BCC7-A8D8522817D3",
+			"isa": "PBXBuildFile"
+		},
+		"0D236C16-9931-4520-999A-287CD3F42709": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imstb_rectpack.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imstb_rectpack.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0DD0D936-5DA3-4D05-B4C1-27E67CEF3B5C": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "BaseEngine.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/BaseEngine.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"0F1C0070-5CE1-4EAF-AECE-18F2EF51BCA5": {
+			"fileRef": "35A30292-436C-49DB-804F-AE6E2BBFE38B",
+			"isa": "PBXBuildFile"
+		},
+		"0F9FC94A-CE0A-450A-997D-F27857ED23F0": {
+			"fileRef": "BD3EA2A0-6535-4728-A77F-4C7B4E474703",
+			"isa": "PBXBuildFile"
+		},
+		"120D5741-6A4A-4DB8-9606-14A942A8C599": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imstb_truetype.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imstb_truetype.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"12C96795-1BBC-43F4-9DB1-D3EBF3F3E695": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxButton.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxButton.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"12CB9CAE-D52E-4B73-ACC2-010445C7CAA2": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIdynloader.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIdynloader.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"1345124D-731C-42A3-B3BC-EF43D3C7CCDF": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Lib.cplusplus.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Lib.cplusplus.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"167B1B4E-BCB2-47E5-BF29-B1F383A4F998": {
+			"children": [
+				"0342EEC7-0CF1-4078-8833-1CB4102DA42A"
+			],
+			"isa": "PBXGroup",
+			"name": "libs",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"16AC5232-4BBE-404D-80DC-BA8B356BA889": {
+			"fileRef": "9204CC4E-412C-4B2D-BDB0-11C66E7E6DB5",
+			"isa": "PBXBuildFile"
+		},
+		"1757A9C5-EE58-42AD-893D-AB770C03B408": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIsend.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIsend.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"191CD6FA2847E21E0085CBB6": {
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "text.plist.entitlements",
+			"path": "of.entitlements",
+			"sourceTree": "<group>"
+		},
+		"191EF70929D778A400F35F26": {
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "folder",
+			"name": "openFrameworks",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/libs/openFrameworks",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"19B789C429E5AB4A0082E9B8": {
+			"buildActionMask": "2147483647",
+			"files": [],
+			"inputFileListPaths": [],
+			"inputPaths": [],
+			"isa": "PBXShellScriptBuildPhase",
+			"outputFileListPaths": [],
+			"outputPaths": [],
+			"runOnlyForDeploymentPostprocessing": "0",
+			"shellPath": "/bin/sh",
+			"shellScript": "\"$OF_PATH/scripts/osx/xcode_project.sh\"\n",
+			"showEnvVarsInLog": "0"
+		},
+		"1C9FDECF-50A8-43C4-909D-5C261DAC7669": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineVk.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineVk.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"1CF280BA-9A0E-47C3-8C39-7FC32F53A5A2": {
+			"fileRef": "EFA99A56-8074-4AFC-82CB-2870F1B45582",
+			"isa": "PBXBuildFile"
+		},
+		"1CF7637A-F695-4F0A-9929-893FEC47A070": {
+			"fileRef": "39B85EA5-25E8-4931-889F-2640570BA1CF",
+			"isa": "PBXBuildFile"
+		},
+		"1EAC5037-94F9-46CF-88FD-17A66E461DE4": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "RtMidi.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/rtmidi/RtMidi.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"1ED0DA32-54D6-438C-A8AE-062A2D94EF29": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIreceive.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIreceive.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"22007DCC-8977-473C-81DD-63BFF9A15B32": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxSlider.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSlider.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"22A2CD1F-2067-44D3-BF68-2F8B528C37B4": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Lib.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Lib.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"25DE1AB0-489E-4DB9-B5E3-81C511CCE778": {
+			"fileRef": "D048F9F0-C043-48ED-85E5-0EB2E692DDE9",
+			"isa": "PBXBuildFile"
+		},
+		"263D1E09-173A-4F74-ABC0-5D0C5099B3E1": {
+			"fileRef": "7234261B-4489-45E6-9D9F-4B70A0F4B980",
+			"isa": "PBXBuildFile"
+		},
+		"29F4BB18-6FE1-4E03-B47B-DA77BFCE0CBA": {
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "wrapper.framework",
+			"name": "CoreMIDI.framework",
+			"path": "/System/Library/Frameworks/CoreMIDI.framework",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"2B316CB8-4ABA-4763-A5AB-A19F0A0B9FD5": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIsender.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIsender.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"2C03E06A-2FCB-450D-BB15-D342D71BFAD4": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxGuiGroup.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiGroup.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"2DACC7D7-136A-48E7-9E42-FC695C090B1A": {
+			"fileRef": "A307E381-E276-453C-B942-CFA8E2A89F55",
+			"isa": "PBXBuildFile"
+		},
+		"2DE0413F-AE6B-4E69-B616-09D6BC30CA32": {
+			"fileRef": "B837E5C2-0B90-418A-ADC4-90BF7C73311C",
+			"isa": "PBXBuildFile"
+		},
+		"339C932B-6899-4E14-9293-D2DE68925E87": {
+			"children": [
+				"D4BF234E-1074-4A6D-BCEA-0B66A68D4A1E",
+				"5133C156-861B-48DB-8D08-E55C714C7428",
+				"BD3EA2A0-6535-4728-A77F-4C7B4E474703",
+				"3AD6845B-0E05-4E0B-902F-699BE4B1D710",
+				"FD2163F0-60E7-4904-81FF-E5D8D19FE8E2",
+				"EFA99A56-8074-4AFC-82CB-2870F1B45582",
+				"0D236C16-9931-4520-999A-287CD3F42709",
+				"6EA50388-F65B-47D5-86A3-B61808FF4038",
+				"120D5741-6A4A-4DB8-9606-14A942A8C599"
+			],
+			"isa": "PBXGroup",
+			"name": "src",
+			"path": "../../../addons/ofxImGui/libs/imgui/src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"3466A8C5-A15F-4DE4-A91F-C4736C93186D": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiClock.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiClock.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"35A30292-436C-49DB-804F-AE6E2BBFE38B": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "BaseEngine.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/BaseEngine.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"37FDDAA4-82EA-45BA-B5EC-288936853A31": {
+			"fileRef": "4AC655A5-70E5-4581-97A5-8A5D9137E3D3",
+			"isa": "PBXBuildFile"
+		},
+		"39B85EA5-25E8-4931-889F-2640570BA1CF": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiIn.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiIn.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"3AD6845B-0E05-4E0B-902F-699BE4B1D710": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui_draw.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui_draw.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"3BD835C9-9C31-4915-839D-DF95B8A41F4B": {
+			"fileRef": "4D616BFD-76AD-4236-80E4-E0BB463803F6",
+			"isa": "PBXBuildFile"
+		},
+		"41FF240D-CB42-44D7-94BD-B68E7BBA00F9": {
+			"fileRef": "6B4FCE76-D21C-4337-A009-91ED131689FB",
+			"isa": "PBXBuildFile"
+		},
+		"42D3E84F-016A-42E3-9E7F-B9B5834A8DD1": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineOpenGLES.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineOpenGLES.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"464C181B-85D6-43F4-81C1-8D9425F62B2C": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineOpenGLES.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineOpenGLES.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"473C662D-EA22-4D89-B3B9-DA32CB3E6EF6": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxGui.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGui.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"4AC655A5-70E5-4581-97A5-8A5D9137E3D3": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "DefaultTheme.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/DefaultTheme.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"4CC4B9F4-F98F-4A54-8A21-8543F3929EF6": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxColorPicker.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxColorPicker.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"4D616BFD-76AD-4236-80E4-E0BB463803F6": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxRtMidiOut.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop/ofxRtMidiOut.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"4E206963-342F-4B83-8FB0-6BF2FE8EADEE": {
+			"fileRef": "0023FD4E-4CCF-4711-8CAE-BCFC34C46E13",
+			"isa": "PBXBuildFile"
+		},
+		"4E34CD90-3DF9-49F9-BBBD-AE70A0698908": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxLabel.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxLabel.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"4FAF97C5-4C4E-4915-A1B4-900F0363FCB8": {
+			"children": [
+				"29F4BB18-6FE1-4E03-B47B-DA77BFCE0CBA"
+			],
+			"isa": "PBXGroup",
+			"name": "frameworks",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"5133C156-861B-48DB-8D08-E55C714C7428": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"516A265C-AA28-4E36-BD15-7A9A924F01E0": {
+			"fileRef": "42D3E84F-016A-42E3-9E7F-B9B5834A8DD1",
+			"isa": "PBXBuildFile"
+		},
+		"57A3D525-1F9E-4850-97E4-A1C283DE5BF1": {
+			"children": [
+				"E66EF181-9348-4327-A5CB-5DAD033282E9"
+			],
+			"isa": "PBXGroup",
+			"name": "libs",
+			"path": "../../../addons/ofxImGui/libs",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"57C2E2FA-0D6B-425A-9544-7D91872BC407": {
+			"children": [
+				"BE95056F-2608-4C79-A037-DE78B98027B7",
+				"1EAC5037-94F9-46CF-88FD-17A66E461DE4"
+			],
+			"isa": "PBXGroup",
+			"name": "rtmidi",
+			"path": "../../../addons/ofxMidi/libs/rtmidi",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"58C87D1A-50C0-4BCC-A44F-0791BD5D9276": {
+			"fileRef": "D4BF234E-1074-4A6D-BCEA-0B66A68D4A1E",
+			"isa": "PBXBuildFile"
+		},
+		"594968F1-DA59-4CEE-B430-A485FF5356C7": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxBaseGui.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxBaseGui.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"5F3B7AF5-2ABB-4F4A-BC0E-95DD49393A52": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "DefaultTheme.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/DefaultTheme.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"607A3B08-B0C4-4DFC-B3C8-0D80C6C13EA8": {
+			"children": [
+				"594968F1-DA59-4CEE-B430-A485FF5356C7",
+				"A23C91A5-2C91-4170-A026-E3FA00CC92E2",
+				"E7FF058E-C3E9-4AF7-B3FB-F3E9CEA9E592",
+				"12C96795-1BBC-43F4-9DB1-D3EBF3F3E695",
+				"69622872-AA8F-433E-B6A5-C4327A545F39",
+				"4CC4B9F4-F98F-4A54-8A21-8543F3929EF6",
+				"473C662D-EA22-4D89-B3B9-DA32CB3E6EF6",
+				"2C03E06A-2FCB-450D-BB15-D342D71BFAD4",
+				"DF02A35E-1EA0-464F-8B1D-4331F665357F",
+				"F0228C78-6925-40E6-B71E-6B951BED735D",
+				"B837E5C2-0B90-418A-ADC4-90BF7C73311C",
+				"CBABF407-D982-49B7-AA8F-4797F13A79E6",
+				"7234261B-4489-45E6-9D9F-4B70A0F4B980",
+				"4E34CD90-3DF9-49F9-BBBD-AE70A0698908",
+				"C7E46568-28CB-432E-B65C-8A7AAC0EED64",
+				"F3DEE0C5-20A9-48DD-8070-A7ECE70F2291",
+				"6B4FCE76-D21C-4337-A009-91ED131689FB",
+				"22007DCC-8977-473C-81DD-63BFF9A15B32",
+				"EC47C67E-743D-4057-BC6A-1AD878552C31",
+				"CEB934D5-1006-42E0-850B-71916C99F424",
+				"8E665686-D1AE-41C3-BCC7-A8D8522817D3",
+				"7B73A2A5-A359-4C78-BC70-59A4401314E1"
+			],
+			"isa": "PBXGroup",
+			"name": "src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"611DFBE5-9D18-442F-85A0-330227244254": {
+			"children": [
+				"C1B8F8FC-D435-465D-9D9F-CD1A743577C8",
+				"0377996E-2DCE-4AF6-B429-12B98C429C75",
+				"73DD7A9C-5C67-404C-A565-AC0AC9721EA9",
+				"A307E381-E276-453C-B942-CFA8E2A89F55",
+				"8DF120D8-4B62-4FA4-83A9-DD005C216057",
+				"3466A8C5-A15F-4DE4-A91F-C4736C93186D",
+				"F2D6DCBB-7555-40AB-AA93-F8910C21FC5D",
+				"739BCA3A-5161-441B-8DCB-CA5FD3D3C0E3",
+				"39B85EA5-25E8-4931-889F-2640570BA1CF",
+				"A4A0F952-5A85-4BE6-823E-8CEE8A029EE8",
+				"D36EF2E9-685C-403E-858C-8DFCFE650B2B",
+				"9E5CB0B2-6928-4CBF-A8D6-CFB352BD5AFE",
+				"8703295E-361A-4789-BAF7-9504F47F5B93",
+				"A0B82372-758F-4DB4-8DA0-5B0D07D2D472",
+				"D8F58899-7FEF-4204-B3BD-585B98728E5A",
+				"BFC5943E-55EF-488D-A852-9A99A4265174",
+				"F8D67AB4-CE63-4FDF-B335-D04578B3A801"
+			],
+			"isa": "PBXGroup",
+			"name": "src",
+			"path": "../../../addons/ofxMidi/src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"631BDE1B-45D5-4F7F-9081-2E171BBCFA67": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imconfig.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/imconfig.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"639198BA-820D-45B8-9C3C-7EFCF4CA78BF": {
+			"fileRef": "C7E46568-28CB-432E-B65C-8A7AAC0EED64",
+			"isa": "PBXBuildFile"
+		},
+		"68493302-B9AB-447D-AA91-4821EF21915F": {
+			"fileRef": "F1F496E8-8678-4348-9B63-96D5484858B5",
+			"isa": "PBXBuildFile"
+		},
+		"69622872-AA8F-433E-B6A5-C4327A545F39": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxColorPicker.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxColorPicker.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"69DCD820-719A-47B8-9F76-784236202478": {
+			"fileRef": "DAB97B7D-4F35-4665-8EBF-33F4A3F333CD",
+			"isa": "PBXBuildFile"
+		},
+		"6A146FC9-EC2E-4658-957B-0EF32AE07878": {
+			"fileRef": "7736D5B9-38F6-46D7-A051-C5B7B3E01276",
+			"isa": "PBXBuildFile"
+		},
+		"6B4FCE76-D21C-4337-A009-91ED131689FB": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxSlider.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSlider.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"6C1A5C40-87BD-4AB2-B5EB-BF87DEE56F47": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.compat.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.compat.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"6C3EB830-C6F3-424F-B923-085622888648": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIutils.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIutils.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"6EA50388-F65B-47D5-86A3-B61808FF4038": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imstb_textedit.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imstb_textedit.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"7234261B-4489-45E6-9D9F-4B70A0F4B980": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxLabel.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxLabel.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"739BCA3A-5161-441B-8DCB-CA5FD3D3C0E3": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiConstants.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiConstants.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"73DD7A9C-5C67-404C-A565-AC0AC9721EA9": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxBaseMidi.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxBaseMidi.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"755589BD-C1A5-4553-AF99-0ACB159B6EBF": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "BaseTheme.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/BaseTheme.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"756BF99E-ED54-4066-8DC8-DB480FA6A9F3": {
+			"fileRef": "E6CB2160-633C-4CC2-BE03-7B5A36CDDBE2",
+			"isa": "PBXBuildFile"
+		},
+		"7726E0A0-ED65-42E6-ADB5-5A8E07717B99": {
+			"fileRef": "E7FF058E-C3E9-4AF7-B3FB-F3E9CEA9E592",
+			"isa": "PBXBuildFile"
+		},
+		"7736D5B9-38F6-46D7-A051-C5B7B3E01276": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIutils.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIutils.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"79D6602B-BBF1-449D-BBA5-5D81DAA3BCF4": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Gui.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/Gui.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"7B73A2A5-A359-4C78-BC70-59A4401314E1": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxToggle.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxToggle.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"7C87F891-05F8-4D98-A638-0F81389F42D8": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIreceiver.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIreceiver.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"85EE1F4E-7929-4928-ADDE-A86BBD35DDE9": {
+			"fileRef": "D36EF2E9-685C-403E-858C-8DFCFE650B2B",
+			"isa": "PBXBuildFile"
+		},
+		"86355940-506A-46EE-BBEE-94404F391206": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.deprecated.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.deprecated.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"8703295E-361A-4789-BAF7-9504F47F5B93": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiOut.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiOut.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"8B39E1AC-E9E6-4498-AD3A-0895B3D08293": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Recv.ex.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Recv.ex.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"8DF120D8-4B62-4FA4-83A9-DD005C216057": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidi.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidi.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"8E665686-D1AE-41C3-BCC7-A8D8522817D3": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxToggle.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxToggle.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"9204CC4E-412C-4B2D-BDB0-11C66E7E6DB5": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxImGuiLoggerChannel.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/ofxImGuiLoggerChannel.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"9225A74F-7F75-40B4-BC36-1376B26FCDBE": {
+			"fileRef": "69622872-AA8F-433E-B6A5-C4327A545F39",
+			"isa": "PBXBuildFile"
+		},
+		"9CB0032D-ECE0-4035-89D6-8BDE756ED38A": {
+			"children": [
+				"A6CAD900-18BE-4FA6-800A-4363A583CDED",
+				"EE9E5167-6FC4-4FF0-96D8-D0381BC6DB99",
+				"12CB9CAE-D52E-4B73-ACC2-010445C7CAA2",
+				"0409879B-D001-43DC-96C1-056610E10B6F",
+				"D3912F86-137E-4AC1-A7DE-D9A9CE9C6EF2",
+				"1ED0DA32-54D6-438C-A8AE-062A2D94EF29",
+				"D048F9F0-C043-48ED-85E5-0EB2E692DDE9",
+				"7C87F891-05F8-4D98-A638-0F81389F42D8",
+				"F1F496E8-8678-4348-9B63-96D5484858B5",
+				"1757A9C5-EE58-42AD-893D-AB770C03B408",
+				"2B316CB8-4ABA-4763-A5AB-A19F0A0B9FD5",
+				"B9F502E4-DF81-4E49-8DEE-9AF0FDCD7951",
+				"7736D5B9-38F6-46D7-A051-C5B7B3E01276",
+				"6C3EB830-C6F3-424F-B923-085622888648",
+				"0A197702-DB5A-4EE6-8D12-632541A0ECDA"
+			],
+			"isa": "PBXGroup",
+			"name": "src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"9E5CB0B2-6928-4CBF-A8D6-CFB352BD5AFE": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiMessage.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiMessage.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"9EE07FD9-DEB3-4BFD-8784-3CE58755AB59": {
+			"children": [
+				"57C2E2FA-0D6B-425A-9544-7D91872BC407"
+			],
+			"isa": "PBXGroup",
+			"name": "libs",
+			"path": "../../../addons/ofxMidi/libs",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A0B82372-758F-4DB4-8DA0-5B0D07D2D472": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiOut.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiOut.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A23C91A5-2C91-4170-A026-E3FA00CC92E2": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxBaseGui.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxBaseGui.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A2F99D33-AFB2-4230-BF9A-28099CB5E889": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Send.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Send.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A307E381-E276-453C-B942-CFA8E2A89F55": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidi.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidi.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A4A0F952-5A85-4BE6-823E-8CEE8A029EE8": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiIn.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiIn.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A6CAD900-18BE-4FA6-800A-4363A583CDED": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDI.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDI.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"A9730AFD-9281-4F79-BB6C-74474BB651FD": {
+			"fileRef": "E3FE21EC-E73A-43FC-9451-8510034ED99C",
+			"isa": "PBXBuildFile"
+		},
+		"AA36630F-40FD-454F-8556-8F51E9BA363D": {
+			"fileRef": "0377996E-2DCE-4AF6-B429-12B98C429C75",
+			"isa": "PBXBuildFile"
+		},
+		"AA68095E-90BF-4AFC-B436-8A552FB33ACD": {
+			"children": [
+				"9EE07FD9-DEB3-4BFD-8784-3CE58755AB59",
+				"611DFBE5-9D18-442F-85A0-330227244254",
+				"4FAF97C5-4C4E-4915-A1B4-900F0363FCB8"
+			],
+			"isa": "PBXGroup",
+			"name": "ofxMidi",
+			"path": "../../../addons/ofxMidi",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"AC06B18D-A5F8-4570-922E-0674727686DE": {
+			"fileRef": "EC47C67E-743D-4057-BC6A-1AD878552C31",
+			"isa": "PBXBuildFile"
+		},
+		"AC168485-265B-43FA-9AAF-16BF79EA1419": {
+			"fileRef": "29F4BB18-6FE1-4E03-B47B-DA77BFCE0CBA",
+			"isa": "PBXBuildFile",
+			"settings": {
+				"ATTRIBUTES": [
+					"CodeSignOnCopy"
+				]
+			}
+		},
+		"ADCA91C8-D386-4D11-A0DC-8E0F4E3A7BB0": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Find.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Find.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"B15B9FEB-9605-481E-AB50-E9278FEB5DCB": {
+			"fileRef": "EE9E5167-6FC4-4FF0-96D8-D0381BC6DB99",
+			"isa": "PBXBuildFile"
+		},
+		"B3863D8B-90FF-49ED-8D32-2E748FDCB07D": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.structs.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.structs.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"B837E5C2-0B90-418A-ADC4-90BF7C73311C": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxInputField.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxInputField.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"B9F502E4-DF81-4E49-8DEE-9AF0FDCD7951": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIsender.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIsender.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BA7F3202-54FE-419F-A592-ED6E0CD47EBC": {
+			"fileRef": "29F4BB18-6FE1-4E03-B47B-DA77BFCE0CBA",
+			"isa": "PBXBuildFile"
+		},
+		"BB4B014C10F69532006C3DED": {
+			"children": [
+				"007FA3AC-FB17-454F-B14C-51ACF56BBA5C",
+				"FE045976-D061-4A14-A28B-140F0099373D",
+				"AA68095E-90BF-4AFC-B436-8A552FB33ACD",
+				"BD53E3FC-D4EF-4B41-B20F-526A128C4F7D"
+			],
+			"isa": "PBXGroup",
+			"name": "addons",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons",
+			"sourceTree": "<group>"
+		},
+		"BB577840-F575-48D5-B122-307260D9D32B": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxImGui.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/ofxImGui.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BD3EA2A0-6535-4728-A77F-4C7B4E474703": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui_demo.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui_demo.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BD53E3FC-D4EF-4B41-B20F-526A128C4F7D": {
+			"children": [
+				"167B1B4E-BCB2-47E5-BF29-B1F383A4F998",
+				"9CB0032D-ECE0-4035-89D6-8BDE756ED38A"
+			],
+			"isa": "PBXGroup",
+			"name": "ofxNDI",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BDC2FD16-3203-4851-B194-653DE18D3D0F": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxRtMidiIn.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop/ofxRtMidiIn.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BE95056F-2608-4C79-A037-DE78B98027B7": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "RtMidi.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/rtmidi/RtMidi.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"BEDE3952-5D3B-4FB0-8B9C-EABD110F04BB": {
+			"fileRef": "BE95056F-2608-4C79-A037-DE78B98027B7",
+			"isa": "PBXBuildFile"
+		},
+		"BFC5943E-55EF-488D-A852-9A99A4265174": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiTimecode.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiTimecode.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"C1B8F8FC-D435-465D-9D9F-CD1A743577C8": {
+			"children": [
+				"C2FA45BC-4680-4B07-A1E4-11631529C146",
+				"BDC2FD16-3203-4851-B194-653DE18D3D0F",
+				"4D616BFD-76AD-4236-80E4-E0BB463803F6",
+				"EBD3670B-5A0A-4C07-AA14-2C9E82BE2D82"
+			],
+			"isa": "PBXGroup",
+			"name": "desktop",
+			"path": "../../../addons/ofxMidi/src/desktop",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"C2FA45BC-4680-4B07-A1E4-11631529C146": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxRtMidiIn.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop/ofxRtMidiIn.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"C75A40AB-6561-469D-9FA0-1D312B6685FA": {
+			"children": [
+				"D8EB831D-B2A4-43CF-B4FD-1EFE59747D79",
+				"ADCA91C8-D386-4D11-A0DC-8E0F4E3A7BB0",
+				"CCCE0903-6574-4563-A42F-8CA2DBB792DE",
+				"1345124D-731C-42A3-B3BC-EF43D3C7CCDF",
+				"22A2CD1F-2067-44D3-BF68-2F8B528C37B4",
+				"8B39E1AC-E9E6-4498-AD3A-0895B3D08293",
+				"025CE33E-3A17-4A64-B2C7-80C1FE7FA137",
+				"EE2F7FD8-BAE7-4B1C-88AB-AED68AA8A810",
+				"A2F99D33-AFB2-4230-BF9A-28099CB5E889",
+				"6C1A5C40-87BD-4AB2-B5EB-BF87DEE56F47",
+				"86355940-506A-46EE-BBEE-94404F391206",
+				"B3863D8B-90FF-49ED-8D32-2E748FDCB07D",
+				"D031411A-C9AD-403E-B66F-CB537A13A781"
+			],
+			"isa": "PBXGroup",
+			"name": "include",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"C7E46568-28CB-432E-B65C-8A7AAC0EED64": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxPanel.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxPanel.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"C9E631CA-F185-40A4-8196-53EEEB351B4F": {
+			"fileRef": "D8F58899-7FEF-4204-B3BD-585B98728E5A",
+			"isa": "PBXBuildFile"
+		},
+		"CBABF407-D982-49B7-AA8F-4797F13A79E6": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxInputField.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxInputField.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"CCCE0903-6574-4563-A42F-8CA2DBB792DE": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.FrameSync.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.FrameSync.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"CEB934D5-1006-42E0-850B-71916C99F424": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxSliderGroup.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSliderGroup.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"CFAF7717-3C2D-4D59-B095-5CA39E3B230A": {
+			"fileRef": "C2FA45BC-4680-4B07-A1E4-11631529C146",
+			"isa": "PBXBuildFile"
+		},
+		"D031411A-C9AD-403E-B66F-CB537A13A781": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.utilities.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.utilities.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D048F9F0-C043-48ED-85E5-0EB2E692DDE9": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIreceiver.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIreceiver.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D36EF2E9-685C-403E-858C-8DFCFE650B2B": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiMessage.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiMessage.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D3912F86-137E-4AC1-A7DE-D9A9CE9C6EF2": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIreceive.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIreceive.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D4BF234E-1074-4A6D-BCEA-0B66A68D4A1E": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D8EB831D-B2A4-43CF-B4FD-1EFE59747D79": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.DynamicLoad.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.DynamicLoad.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"D8F58899-7FEF-4204-B3BD-585B98728E5A": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiTimecode.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiTimecode.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"DAB97B7D-4F35-4665-8EBF-33F4A3F333CD": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "EngineVk.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/EngineVk.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"DBCF4FE1-BA10-4F19-9C94-9EAAEB4135C6": {
+			"fileRef": "D3912F86-137E-4AC1-A7DE-D9A9CE9C6EF2",
+			"isa": "PBXBuildFile"
+		},
+		"DCFB3F77-CFF6-47F8-9311-ABB9D00A5628": {
+			"children": [
+				"35A30292-436C-49DB-804F-AE6E2BBFE38B",
+				"0DD0D936-5DA3-4D05-B4C1-27E67CEF3B5C",
+				"755589BD-C1A5-4553-AF99-0ACB159B6EBF",
+				"4AC655A5-70E5-4581-97A5-8A5D9137E3D3",
+				"5F3B7AF5-2ABB-4F4A-BC0E-95DD49393A52",
+				"0023FD4E-4CCF-4711-8CAE-BCFC34C46E13",
+				"03544265-C293-4A5E-8AA8-8CF271804C11",
+				"42D3E84F-016A-42E3-9E7F-B9B5834A8DD1",
+				"464C181B-85D6-43F4-81C1-8D9425F62B2C",
+				"DAB97B7D-4F35-4665-8EBF-33F4A3F333CD",
+				"1C9FDECF-50A8-43C4-909D-5C261DAC7669",
+				"E3FE21EC-E73A-43FC-9451-8510034ED99C",
+				"79D6602B-BBF1-449D-BBA5-5D81DAA3BCF4",
+				"E6CB2160-633C-4CC2-BE03-7B5A36CDDBE2",
+				"FB606129-EF6B-4CE3-A4B7-9BFEC42A308E",
+				"631BDE1B-45D5-4F7F-9081-2E171BBCFA67",
+				"BB577840-F575-48D5-B122-307260D9D32B",
+				"9204CC4E-412C-4B2D-BDB0-11C66E7E6DB5",
+				"0B7F4E7A-4632-48E0-A15A-D5AABC46CB74"
+			],
+			"isa": "PBXGroup",
+			"name": "src",
+			"path": "../../../addons/ofxImGui/src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"DF02A35E-1EA0-464F-8B1D-4331F665357F": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxGuiGroup.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiGroup.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E3FE21EC-E73A-43FC-9451-8510034ED99C": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Gui.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/Gui.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E42962A92163ECCD00A6A9E2": {
+			"alwaysOutOfDate": "1",
+			"buildActionMask": "2147483647",
+			"files": [],
+			"inputPaths": [],
+			"isa": "PBXShellScriptBuildPhase",
+			"name": "Run Script — Compile OF",
+			"outputPaths": [],
+			"runOnlyForDeploymentPostprocessing": "0",
+			"shellPath": "/bin/sh",
+			"shellScript": "echo \"💾 Compiling Openframeworks\"\nxcodebuild -project \"$OF_PATH/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj\" -target openFrameworks -configuration \"${CONFIGURATION}\"  CLANG_CXX_LANGUAGE_STANDARD=$CLANG_CXX_LANGUAGE_STANDARD MACOSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET GCC_PREPROCESSOR_DEFINITIONS=$USER_PREPROCESSOR_DEFINITIONS\n",
+			"showEnvVarsInLog": "0"
+		},
+		"E4A5B60F29BAAAE400C2D356": {
+			"buildActionMask": "2147483647",
+			"dstPath": "",
+			"dstSubfolderSpec": "6",
+			"files": [],
+			"isa": "PBXCopyFilesBuildPhase",
+			"runOnlyForDeploymentPostprocessing": "0"
+		},
+		"E4B69B4A0A3A1720003C02F2": {
+			"children": [
+				"191CD6FA2847E21E0085CBB6",
+				"E4B6FCAD0C3E899E008CF71C",
+				"E4EB6923138AFD0F00A09F29",
+				"E4B69E1C0A3A1BDC003C02F2",
+				"191EF70929D778A400F35F26",
+				"BB4B014C10F69532006C3DED",
+				"E4B69B5B0A3A1756003C02F2"
+			],
+			"isa": "PBXGroup",
+			"sourceTree": "<group>"
+		},
+		"E4B69B4C0A3A1720003C02F2": {
+			"attributes": {
+				"LastUpgradeCheck": "0600"
+			},
+			"buildConfigurationList": "E4B69B4D0A3A1720003C02F2",
+			"compatibilityVersion": "Xcode 3.2",
+			"developmentRegion": "en",
+			"hasScannedForEncodings": "0",
+			"isa": "PBXProject",
+			"knownRegions": [
+				"en",
+				"Base"
+			],
+			"mainGroup": "E4B69B4A0A3A1720003C02F2",
+			"productRefGroup": "E4B69B4A0A3A1720003C02F2",
+			"projectDirPath": "",
+			"projectRoot": "",
+			"targets": [
+				"E4B69B5A0A3A1756003C02F2"
+			]
+		},
+		"E4B69B4D0A3A1720003C02F2": {
+			"buildConfigurations": [
+				"E4B69B4E0A3A1720003C02F2",
+				"E4B69B4F0A3A1720003C02F2"
+			],
+			"defaultConfigurationIsVisible": "0",
+			"defaultConfigurationName": "Release",
+			"isa": "XCConfigurationList"
+		},
+		"E4B69B4E0A3A1720003C02F2": {
+			"baseConfigurationReference": "E4EB6923138AFD0F00A09F29",
+			"buildSettings": {
+				"CODE_SIGN_ENTITLEMENTS": "of.entitlements",
+				"COPY_PHASE_STRIP": "NO",
+				"ENABLE_TESTABILITY": "YES",
+				"GCC_OPTIMIZATION_LEVEL": "0",
+				"GCC_WARN_UNUSED_VARIABLE": "NO",
+				"HEADER_SEARCH_PATHS": [
+					"$(OF_CORE_HEADERS)",
+					"src"
+				],
+				"OTHER_CPLUSPLUSFLAGS": "-D__MACOSX_CORE__"
+			},
+			"isa": "XCBuildConfiguration",
+			"name": "Debug"
+		},
+		"E4B69B4F0A3A1720003C02F2": {
+			"baseConfigurationReference": "E4EB6923138AFD0F00A09F29",
+			"buildSettings": {
+				"CODE_SIGN_ENTITLEMENTS": "of.entitlements",
+				"COPY_PHASE_STRIP": "YES",
+				"GCC_OPTIMIZATION_LEVEL": "3",
+				"GCC_UNROLL_LOOPS": "YES",
+				"HEADER_SEARCH_PATHS": [
+					"$(OF_CORE_HEADERS)",
+					"src"
+				],
+				"OTHER_CPLUSPLUSFLAGS": "-D__MACOSX_CORE__"
+			},
+			"isa": "XCBuildConfiguration",
+			"name": "Release"
+		},
+		"E4B69B580A3A1756003C02F2": {
+			"buildActionMask": "2147483647",
+			"files": [
+				"E4B69E200A3A1BDC003C02F2",
+				"E4B69E210A3A1BDC003C02F2",
+				"06DE87EA-25D6-4854-84AF-0CAC8D731365",
+				"7726E0A0-ED65-42E6-ADB5-5A8E07717B99",
+				"9225A74F-7F75-40B4-BC36-1376B26FCDBE",
+				"0A37CA2F-0F43-40B2-9408-B8392043E165",
+				"2DE0413F-AE6B-4E69-B616-09D6BC30CA32",
+				"263D1E09-173A-4F74-ABC0-5D0C5099B3E1",
+				"639198BA-820D-45B8-9C3C-7EFCF4CA78BF",
+				"41FF240D-CB42-44D7-94BD-B68E7BBA00F9",
+				"AC06B18D-A5F8-4570-922E-0674727686DE",
+				"0CB209AB-D154-4B1C-987B-9A06748CCF30",
+				"58C87D1A-50C0-4BCC-A44F-0791BD5D9276",
+				"0F9FC94A-CE0A-450A-997D-F27857ED23F0",
+				"0507E38C-56C1-44F4-BB05-9CD223960983",
+				"1CF280BA-9A0E-47C3-8C39-7FC32F53A5A2",
+				"0F1C0070-5CE1-4EAF-AECE-18F2EF51BCA5",
+				"37FDDAA4-82EA-45BA-B5EC-288936853A31",
+				"4E206963-342F-4B83-8FB0-6BF2FE8EADEE",
+				"516A265C-AA28-4E36-BD15-7A9A924F01E0",
+				"69DCD820-719A-47B8-9F76-784236202478",
+				"A9730AFD-9281-4F79-BB6C-74474BB651FD",
+				"756BF99E-ED54-4066-8DC8-DB480FA6A9F3",
+				"16AC5232-4BBE-404D-80DC-BA8B356BA889",
+				"BEDE3952-5D3B-4FB0-8B9C-EABD110F04BB",
+				"CFAF7717-3C2D-4D59-B095-5CA39E3B230A",
+				"3BD835C9-9C31-4915-839D-DF95B8A41F4B",
+				"AA36630F-40FD-454F-8556-8F51E9BA363D",
+				"2DACC7D7-136A-48E7-9E42-FC695C090B1A",
+				"ED13A103-0B14-4963-A91F-08DAD86A456A",
+				"1CF7637A-F695-4F0A-9929-893FEC47A070",
+				"85EE1F4E-7929-4928-ADDE-A86BBD35DDE9",
+				"FB2DF7F3-5A67-4B3D-8CC4-92BDD3C57188",
+				"C9E631CA-F185-40A4-8196-53EEEB351B4F",
+				"B15B9FEB-9605-481E-AB50-E9278FEB5DCB",
+				"DBCF4FE1-BA10-4F19-9C94-9EAAEB4135C6",
+				"25DE1AB0-489E-4DB9-B5E3-81C511CCE778",
+				"68493302-B9AB-447D-AA91-4821EF21915F",
+				"FA0A5A5B-8678-4AE7-AD92-44AE4FD12984",
+				"6A146FC9-EC2E-4658-957B-0EF32AE07878"
+			],
+			"isa": "PBXSourcesBuildPhase",
+			"runOnlyForDeploymentPostprocessing": "0"
+		},
+		"E4B69B590A3A1756003C02F2": {
+			"buildActionMask": "2147483647",
+			"files": [
+				"BA7F3202-54FE-419F-A592-ED6E0CD47EBC"
+			],
+			"isa": "PBXFrameworksBuildPhase",
+			"runOnlyForDeploymentPostprocessing": "0"
+		},
+		"E4B69B5A0A3A1756003C02F2": {
+			"buildConfigurationList": "E4B69B5F0A3A1757003C02F2",
+			"buildPhases": [
+				"E42962A92163ECCD00A6A9E2",
+				"E4B69B580A3A1756003C02F2",
+				"E4B69B590A3A1756003C02F2",
+				"E4C2427710CC5ABF004149E2",
+				"E4A5B60F29BAAAE400C2D356",
+				"19B789C429E5AB4A0082E9B8"
+			],
+			"buildRules": [],
+			"dependencies": [],
+			"isa": "PBXNativeTarget",
+			"name": "trial7",
+			"productName": "myOFApp",
+			"productReference": "E4B69B5B0A3A1756003C02F2",
+			"productType": "com.apple.product-type.application"
+		},
+		"E4B69B5B0A3A1756003C02F2": {
+			"explicitFileType": "wrapper.application",
+			"includeInIndex": "0",
+			"isa": "PBXFileReference",
+			"path": "trial7Debug.app",
+			"sourceTree": "BUILT_PRODUCTS_DIR"
+		},
+		"E4B69B5F0A3A1757003C02F2": {
+			"buildConfigurations": [
+				"E4B69B600A3A1757003C02F2",
+				"E4B69B610A3A1757003C02F2"
+			],
+			"defaultConfigurationIsVisible": "0",
+			"defaultConfigurationName": "Release",
+			"isa": "XCConfigurationList"
+		},
+		"E4B69B600A3A1757003C02F2": {
+			"baseConfigurationReference": "E4EB6923138AFD0F00A09F29",
+			"buildSettings": {
+				"ARCHS": "$(ARCHS_STANDARD)",
+				"COPY_PHASE_STRIP": "NO",
+				"FRAMEWORK_SEARCH_PATHS": [
+					"$(inherited)",
+					"/System/Library/Frameworks"
+				],
+				"GCC_DYNAMIC_NO_PIC": "NO",
+				"HEADER_SEARCH_PATHS": [
+					"$(OF_CORE_HEADERS)",
+					"src",
+					"src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/pgmidi",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/rtmidi",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ios",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src"
+				],
+				"LIBRARY_SEARCH_PATHS": "$(inherited)",
+				"OTHER_LDFLAGS": [
+					"$(OF_CORE_LIBS)",
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(LIB_OF_DEBUG)"
+				]
+			},
+			"isa": "XCBuildConfiguration",
+			"name": "Debug"
+		},
+		"E4B69B610A3A1757003C02F2": {
+			"baseConfigurationReference": "E4EB6923138AFD0F00A09F29",
+			"buildSettings": {
+				"ARCHS": "$(ARCHS_STANDARD)",
+				"COPY_PHASE_STRIP": "YES",
+				"FRAMEWORK_SEARCH_PATHS": [
+					"$(inherited)",
+					"/System/Library/Frameworks"
+				],
+				"HEADER_SEARCH_PATHS": [
+					"$(OF_CORE_HEADERS)",
+					"src",
+					"src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/pgmidi",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/libs/rtmidi",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ios",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include",
+					"/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src"
+				],
+				"LIBRARY_SEARCH_PATHS": "$(inherited)",
+				"OTHER_LDFLAGS": [
+					"$(OF_CORE_LIBS)",
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(LIB_OF)"
+				],
+				"baseConfigurationReference": "E4EB6923138AFD0F00A09F29"
+			},
+			"isa": "XCBuildConfiguration",
+			"name": "Release"
+		},
+		"E4B69E1C0A3A1BDC003C02F2": {
+			"children": [
+				"E4B69E1D0A3A1BDC003C02F2",
+				"E4B69E1E0A3A1BDC003C02F2",
+				"E4B69E1F0A3A1BDC003C02F2"
+			],
+			"isa": "PBXGroup",
+			"path": "src",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E4B69E1D0A3A1BDC003C02F2": {
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "sourcecode.cpp.cpp",
+			"name": "main.cpp",
+			"path": "src/main.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E4B69E1E0A3A1BDC003C02F2": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofApp.cpp",
+			"path": "src/ofApp.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E4B69E1F0A3A1BDC003C02F2": {
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "sourcecode.c.h",
+			"name": "ofApp.h",
+			"path": "src/ofApp.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E4B69E200A3A1BDC003C02F2": {
+			"fileRef": "E4B69E1D0A3A1BDC003C02F2",
+			"isa": "PBXBuildFile"
+		},
+		"E4B69E210A3A1BDC003C02F2": {
+			"fileRef": "E4B69E1E0A3A1BDC003C02F2",
+			"isa": "PBXBuildFile"
+		},
+		"E4B6FCAD0C3E899E008CF71C": {
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "text.plist.xml",
+			"path": "openFrameworks-Info.plist",
+			"sourceTree": "<group>"
+		},
+		"E4C2427710CC5ABF004149E2": {
+			"buildActionMask": "2147483647",
+			"dstPath": "",
+			"dstSubfolderSpec": "10",
+			"files": [],
+			"isa": "PBXCopyFilesBuildPhase",
+			"runOnlyForDeploymentPostprocessing": "0"
+		},
+		"E4EB6923138AFD0F00A09F29": {
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"lastKnownFileType": "text.xcconfig",
+			"path": "Project.xcconfig",
+			"sourceTree": "<group>"
+		},
+		"E66EF181-9348-4327-A5CB-5DAD033282E9": {
+			"children": [
+				"339C932B-6899-4E14-9293-D2DE68925E87"
+			],
+			"isa": "PBXGroup",
+			"name": "imgui",
+			"path": "../../../addons/ofxImGui/libs/imgui",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E6CB2160-633C-4CC2-BE03-7B5A36CDDBE2": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ImHelpers.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/ImHelpers.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"E7FF058E-C3E9-4AF7-B3FB-F3E9CEA9E592": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxButton.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxButton.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"EBD3670B-5A0A-4C07-AA14-2C9E82BE2D82": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxRtMidiOut.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/desktop/ofxRtMidiOut.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"EC47C67E-743D-4057-BC6A-1AD878552C31": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxSliderGroup.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxSliderGroup.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"ED13A103-0B14-4963-A91F-08DAD86A456A": {
+			"fileRef": "3466A8C5-A15F-4DE4-A91F-C4736C93186D",
+			"isa": "PBXBuildFile"
+		},
+		"EE2F7FD8-BAE7-4B1C-88AB-AED68AA8A810": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "Processing.NDI.Routing.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/libs/NDI/include/Processing.NDI.Routing.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"EE9E5167-6FC4-4FF0-96D8-D0381BC6DB99": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIdynloader.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIdynloader.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"EFA99A56-8074-4AFC-82CB-2870F1B45582": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui_widgets.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui_widgets.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"F0228C78-6925-40E6-B71E-6B951BED735D": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxGuiUtils.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxGuiUtils.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"F1F496E8-8678-4348-9B63-96D5484858B5": {
+			"explicitFileType": "sourcecode.cpp.cpp",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxNDIsend.cpp",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxNDI/src/ofxNDIsend.cpp",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"F2D6DCBB-7555-40AB-AA93-F8910C21FC5D": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiClock.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiClock.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"F3DEE0C5-20A9-48DD-8070-A7ECE70F2291": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxPanel.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxGui/src/ofxPanel.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"F8D67AB4-CE63-4FDF-B335-D04578B3A801": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ofxMidiTypes.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxMidi/src/ofxMidiTypes.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"FA0A5A5B-8678-4AE7-AD92-44AE4FD12984": {
+			"fileRef": "2B316CB8-4ABA-4763-A5AB-A19F0A0B9FD5",
+			"isa": "PBXBuildFile"
+		},
+		"FB2DF7F3-5A67-4B3D-8CC4-92BDD3C57188": {
+			"fileRef": "8703295E-361A-4789-BAF7-9504F47F5B93",
+			"isa": "PBXBuildFile"
+		},
+		"FB606129-EF6B-4CE3-A4B7-9BFEC42A308E": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "ImHelpers.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/src/ImHelpers.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"FD2163F0-60E7-4904-81FF-E5D8D19FE8E2": {
+			"explicitFileType": "sourcecode.c.h",
+			"fileEncoding": "4",
+			"isa": "PBXFileReference",
+			"name": "imgui_internal.h",
+			"path": "/Users/rudyharricks/Documents/GRAPHICS/of_v0.12.0_osx_release/addons/ofxImGui/libs/imgui/src/imgui_internal.h",
+			"sourceTree": "SOURCE_ROOT"
+		},
+		"FE045976-D061-4A14-A28B-140F0099373D": {
+			"children": [
+				"57A3D525-1F9E-4850-97E4-A1C283DE5BF1",
+				"DCFB3F77-CFF6-47F8-9311-ABB9D00A5628"
+			],
+			"isa": "PBXGroup",
+			"name": "ofxImGui",
+			"path": "../../../addons/ofxImGui",
+			"sourceTree": "SOURCE_ROOT"
+		}
+	},
+	"openFrameworksProjectGeneratorVersion": "21",
+	"rootObject": "E4B69B4C0A3A1720003C02F2"
+}
